@@ -21,7 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 10px 40px;
 }
 
 .logo {
@@ -46,8 +46,7 @@ body {
 .login-button {
   background-color: #a5bea9;
   border-radius: 38.5px;
-  width: 244px;
-  height: 77px;
+  padding: 16px 32px;
   color: #fff;
   font-weight: 700;
   font-size: 28px;
@@ -61,183 +60,133 @@ body {
 }
 
 /*////////////PRIMEIRA SESSÃO DO SOBRE//////////////*/
-
 .about-section {
   padding: 40px;
   background: linear-gradient(270deg, #8FD6D9 0.25%, #4C7173 61.85%);
   width: 100%;
-  height: 950px;
-  flex-shrink: 0;
-
 }
 
 .about-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
-.about-content {
-  flex: 1;
+.about-content,
+.about-image {
+  flex: 1 1 100%;
+  max-width: 100%;
 }
-.back-about-title{
-    width: 893.087px;
-    height: 100px;
-    flex-shrink: 0;
-    border-radius: 100px;
-    background: #60A38B;
-    margin-bottom: 61px;
+
+.back-about-title {
+  width: 100%;
+  max-width: 893px;
+  height: 100px;
+  border-radius: 100px;
+  background: #60A38B;
+  margin-bottom: 61px;
 }
+
 .about-title {
-    flex-shrink: 0;
-    color: #FFF;
-    font-family: Karla;
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 1.4px;
-    margin-bottom: 69px;
-    margin-left: 45.5px;
+  color: #FFF;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  margin-bottom: 69px;
+  margin-left: 20px;
 }
 
 .about-description {
-    display: flex;
-    width: 1004.846px;
-    height: 461px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #FFF;
-    font-family: Karla;
-    font-size: 45px;
-    font-style: normal; 
-    font-weight: 400;
-    line-height: 140%; /* 63px */
-    letter-spacing: 1.35px;
-    margin-bottom: 87px;
-    margin-right: 55px;
+  width: 100%;
+  max-width: 1000px;
+  font-size: 45px;
+  color: #FFF;
+  line-height: 140%;
+  letter-spacing: 1.35px;
+  margin-bottom: 40px;
 }
 
-.icons{
-    display: flex;
-    flex-direction: column;
+.icons {
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-info {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: #FFF;
-    font-size: 40px;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #FFF;
+  font-size: 40px;
+  font-weight: 700;
 }
 
-.contact-icon-telefone{
-    width: 43.123px;
-    height: 44.373px;
-    transform: rotate(7.315deg);
-    flex-shrink: 0;
-    aspect-ratio: 83.12/74.37;
-    margin-bottom: 20px;
+.contact-icon-telefone,
+.contact-icon {
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-.contact-icon{
-    width: 55.323px;
-    height: 36.796px;
-    flex-shrink: 0;
-    aspect-ratio: 55.32/36.80;
-}
-
-p.phone-number{
-    margin-bottom: 20px;
+p.phone-number {
+  margin-bottom: 20px;
 }
 
 .about-image {
-    flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .desenhoTreino-icon {
-    width: 721.01px;
-    height: 721.01px;
-    flex-shrink: 0;
-    aspect-ratio: 721.01/721.01;
-    border-radius: 353.5px;
-    opacity: 0.6;
-
+  width: 100%;
+  max-width: 721px;
+  height: auto;
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
 /*////////////SEGUNDA SESSÃO DO SOBRE//////////////*/
-
 .mission-section {
-  padding: 40px 40px;
-  height: 1000px;
+  padding: 40px;
   width: 100%;
 }
 
 .mission-container {
-  max-width: 1200px;
   display: flex;
-  gap: 304px;
+  flex-wrap: wrap;
+  gap: 40px;
   align-items: center;
 }
 
-.mission-content {
-  flex: 1;
-}
-
 .mission-title {
-  width: 837px;
-  height: 89px;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Karla;
   font-size: 70px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.4px;
-  padding-top: 80px;
-  margin-bottom: 314px;
-  
+  color: #000;
+  margin-bottom: 40px;
 }
 
 .mission-description {
-  width: 819px;
-  height: 370px;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Karla;
   font-size: 45px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.9px;
+  color: #000;
 }
 
 .team-image {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
 }
 
 /*////////////TERCEIRA SESSÃO DO SOBRE//////////////*/
-
 .features-section {
   background: linear-gradient(270deg, #8fd6d9 16.95%, #4c7173 64.54%);
   padding: 80px 40px;
   width: 100%;
-  height: 900px;
 }
 
 .features-container {
-  max-width: 1200px;
   display: flex;
-  flex-wrap: nowrap;
-  gap: 220px;
-
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .features-title {
@@ -248,33 +197,26 @@ p.phone-number{
   border-radius: 100px;
   padding: 20px 40px;
   margin-bottom: 40px;
-  display: inline-block;
 }
 
 .features-description {
-  display: flex;
-  width: 837px;
-  height: 669px;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #FFF;
-  font-family: Karla;
   font-size: 45px;
-  font-style: normal;
-  font-weight: 400;
+  color: #FFF;
   line-height: 140%;
+  width: 100%;
 }
 
 .features-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 40px;
-  align-items: center;
+  width: 100%;
 }
 
-.diet{
+.diet, .calc, .train {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .feature-card {
@@ -282,106 +224,35 @@ p.phone-number{
   border-radius: 30px;
   width: 115px;
   height: 115px;
-  flex-shrink: 0;
   border: 4px solid #525252;
-  align-items: center;
-}
-
-.diet-icon {
-  display: flex;
-  padding-right: 100px;
-  width: 210px;
-  height: 110px;
-  flex-shrink: 0;
-  aspect-ratio: 80.96/65.00;
-  background-blend-mode: darken;
-}
-
-.diet-text{
-  width: 575px;
-  color: #000;
-  font-family: Karla;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 39.2px */
-  margin-left: 20px;
-
-}
-
-.calc{
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.calculator-icon {
-  width: 65px;
-  height: 80px;
-  flex-shrink: 0;
-  fill: rgba(217, 217, 217, 0.00);
-  stroke-width: 4px;
-  stroke: #525252;
-  margin-top: 15px;
-  margin-left: 20px;
+.diet-icon, .calculator-icon, .train-icon {
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-
-.calc-text{
-  width: 575px;
-  color: #000;
-  font-family: Karla;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 39.2px */
-  margin-left: 20px;
-}
-
-.train{
-  display: flex;
-  align-items: center;
-}
-
-.train-icon{
-  margin-top: 29px;
-  margin-left: 11px;
-}
-
-.train-text{
-  width: 575px;
-  color: #000;
-  font-family: Karla;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 39.2px */
-  margin-left: 20px;
-}
-
-
-.feature-title {
-  color: #000;
+.diet-text, .calc-text, .train-text {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.feature-description {
-  color: #000;
-  font-size: 24px;
+  line-height: 140%;
+  margin-left: 20px;
+  max-width: 575px;
 }
 
 /*////////////QUARTA SESSÃO DO SOBRE//////////////*/
-
 .values-section {
   padding: 80px 40px;
   width: 100%;
 }
 
 .values-container {
-  max-width: 1920px;
+  max-width: 1200px;
   margin: 0 auto;
-  height: 800px;
   margin-top: 80px;
 }
 
@@ -395,8 +266,8 @@ p.phone-number{
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
 }
 
 .value-card {
@@ -410,20 +281,17 @@ p.phone-number{
 }
 
 .value-subtitle {
-  color: #000;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 .value-description {
-  color: #000;
   font-size: 36px;
   line-height: 140%;
 }
 
 /*////////////FOOTER//////////////*/
-
 .main-footer {
   background-color: #fff;
   box-shadow: 0px 4px 90px 0px rgba(0, 0, 0, 0.25);
@@ -438,7 +306,6 @@ p.phone-number{
 }
 
 .copyright {
-  color: #000;
   font-size: 32px;
   font-weight: 300;
   margin-bottom: 20px;
@@ -454,13 +321,13 @@ p.phone-number{
   width: 40px;
   height: 40px;
 }
-.social-icon-linkedin{
 
-}
-
+/*////////////MEDIA QUERIES//////////////*/
 @media (max-width: 991px) {
   .main-header {
     padding: 0 20px;
+    flex-wrap: wrap;
+    height: auto;
   }
 
   .main-nav {
@@ -472,9 +339,8 @@ p.phone-number{
   }
 
   .login-button {
-    width: 180px;
-    height: 60px;
     font-size: 24px;
+    padding: 10px 20px;
   }
 
   .logo {
@@ -482,101 +348,42 @@ p.phone-number{
     height: 45px;
   }
 
-  .about-container,
-  .mission-container {
-    flex-direction: column;
-  }
-
-  .about-title {
-    font-size: 50px;
-  }
-
-  .about-description {
+  .about-title,
+  .mission-title,
+  .features-title,
+  .values-title {
     font-size: 36px;
   }
 
-  .contact-info {
-    font-size: 32px;
-  }
-
-  .contact-icon {
-    width: 40px;
-    height: 27px;
-  }
-
-  .phone-icon {
-    width: 60px;
-    height: 54px;
-  }
-
-  .mission-title {
-    font-size: 50px;
-  }
-
-  .mission-description {
-    font-size: 36px;
-  }
-
-  .team-image {
-    width: 100%;
-    height: auto;
-  }
-
-  .features-grid,
-  .values-grid {
-    grid-template-columns: 1fr;
+  .about-description,
+  .mission-description,
+  .features-description,
+  .value-description {
+    font-size: 24px;
   }
 
   .value-subtitle {
-    font-size: 36px;
-  }
-
-  .value-description {
     font-size: 28px;
   }
 }
 
 @media (max-width: 640px) {
   .main-header {
-    height: 80px;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .login-button {
-    width: 120px;
-    height: 40px;
     font-size: 18px;
+    padding: 8px 16px;
   }
 
-  .about-title {
-    font-size: 36px;
+  .features-grid {
+    gap: 20px;
   }
 
-  .about-description {
-    font-size: 24px;
+  .values-grid {
+    grid-template-columns: 1fr;
   }
-
-  .mission-title {
-    font-size: 36px;
-  }
-
-  .mission-description {
-    font-size: 24px;
-  }
-
-  .features-title {
-    font-size: 28px;
-  }
-
-  .features-description {
-    font-size: 24px;
-  }
-
-  .value-subtitle {
-    font-size: 28px;
-  }
-
-  .value-description {
-    font-size: 24px;
-  }
-
 }
