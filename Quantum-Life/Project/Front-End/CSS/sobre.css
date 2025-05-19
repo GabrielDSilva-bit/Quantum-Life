@@ -118,7 +118,7 @@ a {
 .back-about-title {
   width: 100%;
   max-width: 893px;
-  height: 100px;
+  height: 80px;
   border-radius: 100px;
   background: #60A38B;
   margin-bottom: 70px;
@@ -136,7 +136,7 @@ a {
 .about-description {
   width: 100%;
   max-width: 1000px;
-  font-size: 45px;
+  font-size: 40px;
   color: #FFF;
   line-height: 100%;
   letter-spacing: 1.35px;
@@ -176,7 +176,7 @@ p.phone-number {
 
 .desenhoTreino-icon {
   width: 100%;
-  max-width: 721px;
+  max-width: 720px;
   height: auto;
   border-radius: 50%;
   opacity: 0.6;
@@ -360,7 +360,7 @@ footer {
   margin: 0 10px;
 }
 /*////////////MEDIA QUERIES//////////////*/
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .main-header {
     padding: 0 20px;
     flex-wrap: wrap;
@@ -389,20 +389,37 @@ footer {
   .mission-title,
   .features-title,
   .values-title {
-    font-size: 36px;
+    font-size: 24px;
   }
-
+  
   .about-description,
   .mission-description,
   .features-description,
   .value-description {
-    font-size: 24px;
+    font-size: 18px;
   }
 
-  .value-subtitle {
-    font-size: 28px;
+  .back-about-title{
+    height: 40px;
   }
-}
+  .value-subtitle {
+    font-size: 20px;
+  }
+  .diet-text,
+  .calc-text,
+  .train-text {
+    font-size: 16px;
+  }
+
+  .feature-card{
+    height: 75px;
+    width: 205px;
+  }
+  
+  .team-image{
+    max-width: 300px;
+  }
+} 
 
 @media (max-width: 640px) {
   .main-header {
