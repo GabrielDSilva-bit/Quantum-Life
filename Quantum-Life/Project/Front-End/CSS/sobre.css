@@ -360,6 +360,34 @@ footer {
   margin: 0 10px;
 }
 /*////////////MEDIA QUERIES//////////////*/
+@media (max-width: 1550px){
+  .about-title,
+  .mission-title,
+  .features-title,
+  .values-title {
+    font-size: 40px;
+  }
+
+  .about-description,
+  .mission-description,
+  .features-description,
+  .value-description {
+    font-size: 30px;
+  }
+
+  .desenhoTreino-icon{
+    max-width: 450px;
+    max-height: 450px;
+  }
+
+  .about-section,
+  .mission-section {
+    width: 100%;
+    max-height: 800px;
+  }
+}
+
+
 @media (max-width: 1200px) {
   .main-header {
     padding: 0 20px;
@@ -383,6 +411,17 @@ footer {
   .logo {
     width: 50px;
     height: 45px;
+  }
+
+  .about-section,
+  .mission-section {
+    width: 100%;
+    max-height: 750px;
+  }
+
+  .desenhoTreino-icon{
+    max-width: 300px;
+    max-height: 300px;
   }
 
   .about-title,
@@ -417,7 +456,7 @@ footer {
   }
   
   .team-image{
-    max-width: 300px;
+    max-width: 250px;
   }
 } 
 
