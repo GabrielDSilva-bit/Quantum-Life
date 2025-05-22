@@ -25,7 +25,7 @@
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     width: 930px;
-    max-width: 100%; /* Garante que o conteúdo não ultrapasse a largura da tela */
+    max-width: 100%; /* Garante que o conteÃšdo nÃĢo ultrapasse a largura da tela */
     padding: 90px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -122,6 +122,10 @@
     border-color: #98B89C;
 }
 
+.email:focus::placeholder {
+    opacity: 0%;
+}
+
 .code {
     width: 80%;
     max-width: 330px;
@@ -143,6 +147,10 @@
     text-align: center;
     letter-spacing: 0.30rem;
     margin-bottom: 5px;
+}
+
+.code:focus::placeholder {
+    opacity: 0%;
 }
 
 .code:focus {
@@ -173,7 +181,7 @@
 @media (max-width: 768px) {
     .content {
         padding: 50px;
-        height: auto; /* Ajusta a altura conforme necessário */
+        height: auto; /* Ajusta a altura conforme necessÃĄrio */
     }
 }
 
