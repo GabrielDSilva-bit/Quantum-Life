@@ -1,0 +1,283 @@
+/* Seu CSS existente (mantido igual) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+}
+
+/* Header - mantido igual */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.1rem;
+  background: white;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+header img {
+  margin-left: 0;
+  padding-left: 0px;
+  max-width: 50px;
+}
+
+.image-bar{
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: 1rem;
+  padding-right: 16%;
+  padding-left: 0%;
+}
+
+nav > * {
+  padding: 0.1rem 0.1rem; 
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+nav > *:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.nav-bar{
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.btn-entrar {
+  background-color: #A5BEA9;
+  color: white;
+  border: 2px solid #A5BEA9;
+  outline: none;
+  padding: 0.8rem 2.3rem;
+  letter-spacing: 1px;
+  border-radius: 55px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-entrar:hover {
+  background-color: #ffffff;
+  color: #A5BEA9;
+  border: 2px solid #A5BEA9;
+  transform: scale(1.05);
+}
+
+/* Conteúdo Principal - com modificações para a foto */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.profile {
+  width: 30%;
+  background: #B6C8B8;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  height: auto;
+  text-align: center;
+}
+
+
+/* NOVO - Efeito na foto de perfil */
+.profile-picture {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  cursor: pointer;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.profile-picture::after {
+  content: "Mudar foto";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2c3e50;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 3px solid #A5BEA9;
+}
+
+.profile-picture:hover::after {
+  opacity: 1;
+}
+
+.profile-picture:hover img {
+  filter: brightness(0.9);
+}
+
+.profile-picture span {
+  display: block;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+.profile-picture p {
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: #2c3e50;
+}
+
+.account-data {
+  width: 65%;
+  background: #B6C8B8;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.account-data h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.account-data button {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: 2px solid #e0e0e0;
+  border-radius: 55px;
+  text-align: left;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.account-data button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #A5BEA9;
+}
+
+.account-data button::after {
+  content: ">";
+  float: right;
+  color: #95a5a6;
+  font-weight: 700;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 40px;
+  margin: 0 10px;
+}
+
+/* Responsividade */
+@media (max-width: 1300px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .profile, .account-data {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  nav {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    header .container {
+      flex-wrap: wrap;
+    }
+    
+    nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      margin: 1rem 0;
+      gap: 1rem;
+    }
+    
+    .btn-entrar {
+      margin-left: 0;
+    }
+  }
+}
