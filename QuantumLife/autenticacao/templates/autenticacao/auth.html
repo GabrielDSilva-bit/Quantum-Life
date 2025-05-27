@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'CSS/login-cadastro.css' %}" />
+    <script src="{% static 'JavaScript/login-cadastro.js' %}" defer></script>
+    <link rel="icon" href="/QuantumLife/QuantumLife/Front-End/static/IMG/quantumlife 2.png" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+    {% if messages %}
+    <div class="center-popup-container">
+        {% for message in messages %}
+        <div class="center-popup {{ message.tags }}">
+            <span class="popup-icon">
+                {% if message.tags == 'success' %}
+                ✅
+                {% elif message.tags == 'error' %}
+                ❌
+                {% else %}
+                ℹ️
+                {% endif %}
+            </span>
+            <span class="popup-text">{{ message }}</span>
+            <span
+                class="popup-close"
+                onclick="this.parentElement.style.display='none'"
+                >&times;</span
+            >
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.center-popup').forEach(popup => {
+                popup.style.display = 'none';
+            });
+        }, 5000);
+    </script>
+
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-colum">
+                <h2 class="title title-welcome">BEM VINDO</h2>
+                <div class="content-button-sigin">
+                    <button id="signin" class="btn-primary-style btn-primary">
+                        Criar conta
+                    </button>
+                </div>
+            </div>
+            <div class="second-colum">
+                <h2 class="title title-login">FAÇA LOGIN</h2>
+                <div class="social-media"></div>
+                <form class="login-form" method="post" action="{% url 'auth' %}">
+                    {% csrf_token %}
+                    <div class="input-container">
+                        <img
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/1893097be41c3bbfad9e2377b169ce282be32e41"
+                            alt=""
+                            class="input-icon"
+                        />
+                        {{ login_form.username }}
+                        <div class="input-divider"></div>
+                    </div>
+                    <div class="input-container">
+                        <img
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/895588f0926ec27c997c10b94f10b01d408ebb22"
+                            alt=""
+                            class="input-icon"
+                        />
+                        <div class="input-divider"></div>
+                        {{ login_form.password }}
+                        <i
+                            class="fa-regular fa-eye"
+                            id="togglePassword"
+                            style="cursor:pointer"
+                        ></i>
+                    </div>
+                    <script>
+                        const togglePassword = document.querySelector('#togglePassword');
+                        const passwordInput = document.querySelector('#password-input');
+
+                        togglePassword.addEventListener('click', function () {
+                            const type =
+                                passwordInput.getAttribute('type') === 'password'
+                                    ? 'text'
+                                    : 'password';
+                            passwordInput.setAttribute('type', type);
+
+                            this.classList.toggle('fa-eye');
+                            this.classList.toggle('fa-eye-slash');
+                        });
+                    </script>
+                    <div class="form-options">
+                        <div class="remember-option">
+                            <input type="checkbox" class="checkbox" />
+                            <span>Lembrar</span>
+                        </div>
+                        <a href="../HTML/esqueceu-a-senha.html" class="forgot-password"
+                            >Esqueceu senha?</a
+                        >
+                    </div>
+                    <div class="btn-second-container">
+                        <button
+                            type="submit"
+                            name="btn_logar"
+                            id="signin-second"
+                            class="btn-second-style btn-second"
+                        >
+                            Entrar
+                        </button>
+                    </div>
+                </form>
+
+                <ul class="list-social-media">
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-brands fa-facebook"
+                                src="{% static '/IMG/google.png' %}"
+                            />
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-brands fa-google"
+                                src="{% static '/IMG/Facebook.png' %}"
+                            />
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-brands fa-linkedin"
+                                src="{% static '/IMG/Linkedin.png' %}"
+                            />
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="content second-content">
+            <div class="first-colum">
+                <h2 class="title-welcome-second">Ja possui uma <br /> conta?</h2>
+                <div class="content-button-login">
+                    <button id="signup-second" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+            <div class="second-colum">
+                <h2 class="title-Criar">CADASTRE-SE</h2>
+                <div class="social-media">
+                    <ul class="list-social-media">
+                        <a
+                            class="link-social-media"
+                            href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fprivacy%2Freview%3Freview_id%3D573933453011661"
+                        >
+                            <li class="item-social-midia"></li>
+                        </a>
+                        <a
+                            class="link-social-media"
+                            href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fpasswords.google.com%2F%3Fhl%3Dpt_BR&hl=pt-BR&ifkv=Ab5oB3pJeSFBGBnCgQyc7exLn9jII21rN82qSeLaBACot7_g_qiiPMSCT8WgoK2SblJik7RqbsAbqA&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1526723137%3A1726074591937318&ddm=0"
+                        >
+                            <li class="item-social-midia"></li>
+                        </a>
+                        <a class="link-social-media" href="https://www.linkedin.com/login/pt-br">
+                            <li class="item-social-midia"></li>
+                        </a>
+                    </ul>
+                </div>
+                <form
+                    class="login-form-second"
+                    method="post"
+                    action="{% url 'auth' %}"
+                >
+                    {% csrf_token %}
+                    <div class="input-container">
+                        <img
+                            src="{% static '/IMG/email.jpg' %}"
+                            alt=""
+                            class="input-icon-email"
+                        />
+                        <div class="input-divider-second"></div>
+                        {{ cadastro_form.email }}
+                    </div>
+                    <div class="input-container">
+                        <img
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/1893097be41c3bbfad9e2377b169ce282be32e41"
+                            alt=""
+                            class="input-icon"
+                        />
+                        <div class="input-divider-second"></div>
+                        {{ cadastro_form.cpf }}
+                    </div>
+                    <div class="input-container">
+                        <img
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/895588f0926ec27c997c10b94f10b01d408ebb22"
+                            alt=""
+                            class="input-icon"
+                        />
+                        <div class="input-divider-second"></div>
+                        <!-- Ajuste: adiciona id consistente para o input -->
+                        {{ cadastro_form.password|attr:"id=password-cadastro" }}
+                        <i
+                            class="fa-regular fa-eye"
+                            id="togglePasswordCadastro"
+                            style="cursor:pointer"
+                        ></i>
+                    </div>
+
+                    <div class="btn-second-container-cadastro">
+                        <button
+                            name="btn_cadastrar"
+                            type="submit"
+                            id="signin-second"
+                            class="btn-second-style-cadastro btn-second"
+                        >
+                            CRIAR CONTA
+                        </button>
+                    </div>
+                </form>
+                <ul class="list-social-media-second">
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-brands-second fa-facebook"
+                                src="{% static '/IMG/google.png' %}"
+                            />
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-brands-second fa-google"
+                                src="{% static '/IMG/Facebook.png' %}"
+                            />
+                        </li>
+                    </a>
+                    <a class="link-social-media" href="">
+                        <li class="item-social-midia">
+                            <img
+                                class="fa-linkedin-second"
+                                src="{% static '/IMG/Linkedin.png' %}"
+                            />
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Toggle senha do cadastro
+        const togglePasswordCadastro = document.getElementById(
+            'togglePasswordCadastro'
+        );
+        const passwordCadastroInput = document.getElementById('password-cadastro');
+
+        if (togglePasswordCadastro && passwordCadastroInput) {
+            togglePasswordCadastro.addEventListener('click', function () {
+                const type =
+                    passwordCadastroInput.getAttribute('type') === 'password'
+                        ? 'text'
+                        : 'password';
+                passwordCadastroInput.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        }
+    </script>
+</body>
+</html>
