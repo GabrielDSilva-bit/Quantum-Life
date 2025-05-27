@@ -165,8 +165,23 @@ max-width: 100%;
 height: auto;
 }
 
+.contact-icon-telefone {
+  height: 30px;
+  width: 50px;
+}
+
+.contact-icon {
+  height: 30px;
+  padding-left: 10px;
+  width: 50px;
+}
 p.phone-number {
 margin-bottom: 20px;
+font-size: 25px;
+}
+
+p.email {
+  font-size: 25px;
 }
 
 .about-image {
@@ -368,6 +383,11 @@ margin: 0 10px;
     font-size: 40px;
   }
 
+  .about-title {
+    padding-left: 80px;
+    padding-top: 15px;
+  }
+  
   .about-description,
   .mission-description,
   .features-description,
