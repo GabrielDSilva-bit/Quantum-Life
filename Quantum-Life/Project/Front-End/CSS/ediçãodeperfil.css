@@ -292,14 +292,55 @@ main {
   
    min-width: 40%;
 }
+.btns{
+   width: 80%;
+    padding: 1rem;
+    margin: 10px auto;
+    background-color: #52796B;
+    border-radius: 55px;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+.btn{
+     width: 80%;
+    padding: 1rem;
+    margin: 10px auto;
+    background-color: #52796B;
+    border-radius: 55px;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+.btn:hover{
+     background-color: #c1ddd1;
+    color: #4d7051;
+    border: 1px solid #4d7051;
+}
 
+.btns:hover{
+    background-color: #c1ddd1;
+    color: #4d7051;
+    border: 1px solid #4d7051;
+    
+}
 
 /* Estilo base para todos os botões */
 .btn, .btn-sair {
     width: 80%;
     padding: 1rem;
     margin: 10px auto;
-    background-color: #4d7051;
+    background-color: #52796B;
     border-radius: 55px;
     border: none;
     text-align: center;
@@ -313,7 +354,7 @@ main {
 
 /* Estilo específico para o botão Sair */
 .btn-sair {
-    background-color: #8DAE91;
+    background-color: #00ff1e;
     margin-top: 70px; /* Espaçamento maior acima */
     margin-bottom: 10px;
      width: 60%; /* Reduz a largura para 60% (ajuste conforme necessário) */
@@ -327,13 +368,13 @@ main {
 /* Efeito hover para o botão Sair */
 .btn-sair:hover {
     background-color: #c1ddd1;
-    color: #4d7051;
+    color: #00ff1e;
     border: 1px solid #4d7051;
 }
 
 .account-data button:hover {
-    color: #ffffff;
-    background-color: #d1e4d5;
+    color: #ff0000;
+    background-color: #00ff37;
     border: 1px solid #4d7051;
 }
 
@@ -350,7 +391,7 @@ main {
 
 /* Hover para botões claros (3-5) */
 .account-data button:nth-child(3):hover {
-  background-color: #c1ddd1;
+  background-color: #00ff91;
 }
 .account-data button:nth-child(4):hover {
   background-color: #c1ddd1;
@@ -362,7 +403,7 @@ main {
     margin-right: auto;
 }
 
-.account-data button:nth-child(2) { background-color: #7F9D92; color: #ffffff; }
+.account-data button:nth-child(2) { background-color: #00ffa2; color: #ffffff; }
 .account-data button:nth-child(3) { background-color: #52796B; color: #ffffff; }
 .account-data button:nth-child(4) { background-color: #52796B; color: #ffffff; }
 .account-data button:nth-child(5) { background-color: #8DAE91; color: #ffffff; }
