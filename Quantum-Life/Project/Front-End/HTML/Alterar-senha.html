@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="../CSS/alterar-senha.css" media="screen" />
+  <title>Quantum Life - Redefinir Senha</title>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="../Quantum/Ediçãodeperfil.html"><img class="image-bar" src="../IMG/quantumlife 2.png" alt="Logo Quantum Life" /></a>
+      <nav class="nav-bar">
+        <a href="../HTML/home.html">PÁGINA INICIAL</a>
+        <a href="../HTML/sobre.html">SOBRE</a>
+        <a href="dieta.html">DIETA</a>
+        <a href="treinos.html">TREINOS</a>
+        <a href="../HTML/calculo-imc.html">IMC</a>
+      </nav>     
+      <button class="btn-entrar">ENTRAR</button> 
+    </div>
+  </header>
+
+  <main>
+    <div class="container-box">
+      <div class="senha-container">
+        <div class="senha-content">
+          <h1 class="senha-title">ALTERAÇÃO DE SENHA</h1>
+          
+          
+          <form class="senha">
+            <div class="form-group">
+              <label for="current-password" class="form-label">Senha atual</label>
+              <input type="password" id="current-password" class="form-input" placeholder="Digite sua senha atual">
+            </div>
+            
+            <div class="form-group">
+              <label for="new-password" class="form-label">Nova senha</label>
+              <input type="password" id="new-password" class="form-input" placeholder="Digite sua nova senha">
+              
+              <div class="senha-request">
+                <p>A senha deve conter:</p>
+                <ul>
+                  <li class="request-item"><span class="request-checkbox"></span> Pelo menos 8 caracteres</li>
+                  <li class="request-item"><span class="request-checkbox"></span> 1 letra maiúscula</li>
+                  <li class="request-item"><span class="request-checkbox"></span> 1 caractere especial (#?!&.)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirm-password" class="form-label">Confirme a nova senha</label>
+              <input type="password" id="confirm-password" class="form-input" placeholder="Confirme sua nova senha">
+            </div>
+            
+            <div class="form-actions">
+              <a href="../HTML/Ediçãodeperfil.html" class="btn-cancel"> CANCELAR </a>
+              <button type="submit" class="btn-confirm"> CONFIRMAR </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <img src="../IMG/google.png" alt="Google" class="social-icon">
+      <img src="../IMG/Facebook.png" alt="Facebook" class="social-icon">
+      <img src="../IMG/Linkedin.png" alt="LinkedIn" class="social-icon">
+    </div>
+    <div class="footer-text">
+      <p>© 2025 Feito Por Quantum Life.</p>
+    </div>  
+  </footer>
+
+</body>
+</html>
