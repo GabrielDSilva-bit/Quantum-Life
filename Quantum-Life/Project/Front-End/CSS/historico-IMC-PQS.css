@@ -1,0 +1,1063 @@
+/* ====== ESTILOS GERAIS ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== HEADER ====== */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+header img {
+    max-width: 50px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #8FD6D9;
+}
+
+.btn-entrar {
+    background-color: #A5BEA9;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 55px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-entrar:hover {
+    background-color: #8FD6D9;
+}
+
+/* ====== MAIN CONTENT ====== */
+.container-main {
+    width: 100%;
+    max-width: 1600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/*=================Historico vazio===========*/
+
+/* Estilo para histórico vazio na tabela */
+.history-container.empty {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: 6px solid #8FD6D9;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.empty-state-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.empty-state-image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.empty-state-text {
+    font-size: 1rem;
+    white-space: nowrap;
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Karla', sans-serif;
+}
+
+.clear-filter-link {
+    display: block;
+    margin-top: 15px;
+    color: #8FD6D9;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+}
+
+.clear-filter-link:hover {
+    color: #63a2a7;
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* Oculta o conteúdo original */
+.history-container.empty .history-header,
+.history-container.empty .history-item,
+.history-container.empty .treino-column,
+.history-container.empty .link {
+    display: none;
+}
+
+/* Estilo para histórico vazio nos cards */
+/* Estilo para estado vazio */
+.timeline.container.empty {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.empty-state-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.empty-state-image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.empty-state-text {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Karla', sans-serif;
+}
+
+.clear-filter-link {
+    display: block;
+    margin-top: 15px;
+    color: #8FD6D9;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
+.clear-filter-link:hover {
+    color: #63a2a7;
+    text-decoration: underline;
+}
+
+/* Oculta o conteúdo original */
+.timeline.container.empty .history-header,
+.timeline.container.empty .double-arrow,
+.timeline.container.empty .timeline-card,
+.timeline.container.empty .timeline-row,
+.timeline.container.empty .timeline-date{
+    display: none;
+}
+
+
+/* ====== CAIXA DE PESQUISA ====== */
+.search-box {
+    background-color: #8FD6D9;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 2rem 0;
+    width: 300px;
+}
+
+.search-box h1 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-input {
+    display: flex;
+    margin: 10px -3px;
+    width: 100%;
+    position: relative;
+}
+
+/* Estilo do input (caixa de texto) */
+.search-input input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    padding-right: 2.2rem;
+    border: 2px solid #63a2a7; /* Borda azul-esverdeada */
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #8FD6D9; /* Fundo cinza claro */
+    color: #333; /* Cor do texto */
+}
+
+/* Quando o input está em foco */
+.search-input input:focus {
+    border-color: rgb(125, 209, 191); /* Borda laranja quando selecionado */
+    background-color: #8fdee0; /* Fundo branco */
+    box-shadow: 0 0 0 3px rgba(255, 60, 0, 0.2); /* Sombra laranja suave */
+}
+
+/* Estilo do botão de pesquisa como elemento independente */
+.search-button {
+    position: relative;
+    top: 1rem;
+    height: 1rem; /* Aumentei para combinar com o ícone maior */
+    right: 3rem;
+    min-width: -100px;  /* Aumentei para combinar com o ícone maior */
+    background-color: #8FD6D9;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin: 0.1rem; /* Margem: top right bottom left (10px na esquerda) */
+    float: left; /* Isso move o botão para a esquerda */
+    /* Ou alternativamente: */
+    /* margin-right: auto; */ /* Se estiver em um container flex */
+}
+
+.search-button:hover {
+    background-color: #8FD6D9;
+    transform: scale(1.05);
+}
+
+.search-button i {
+    font-size: 2rem; /* Tamanho aumentado do ícone */
+}
+
+.search-options {
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+.search-options a {
+    color: #333;
+    font-size: 1.2rem;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 300; /* Alterado de 600 para 300 (mais fino) */
+    padding: 0.1rem 0;
+    transition: color 0.3s ease;
+    font-family: 'Karla', sans-serif; /* Garantindo que está usando a fonte correta */
+}
+
+.search-options a:hover {
+    color: #031411;
+}
+/* ====== HISTÓRICO IMC ====== */
+.imc-history {
+    background-color: #8FD6D940;
+    padding: 3rem 2rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-top: 2rem;
+    border: 6px solid #8FD6D9;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.imc-history h1 {
+    color: #333;
+    font-size: 2.4rem;
+    background-color: #8FD6D9;
+    padding: 12px 40px;
+    border-radius: 100px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 15;
+    margin: 0;
+}
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.history-header {
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 0.8rem 1rem;
+    background-color: solid #00f7ff40; /* Corrigido: 'solid' não é necessário */
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    font-style: oblique; /* Inclinação leve */
+}
+
+
+.header-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.history-header h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.history-item {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    font-size: 1.3rem;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #8FD6D940;
+}
+
+.item-date {
+    font-weight: 600;
+    text-align: center;
+}
+
+.item-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.positive {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.negative {
+    color: #c62828;
+    font-weight: 600;
+}
+
+/*==================selecionar data tabela============*/
+.period-selector {
+    position: absolute;
+    top: -80px;
+    right: 20px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column-reverse; /* Inverte a ordem: dropdown vem acima do botão */
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.period-dropdown {
+    display: none;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 240px;
+    position: absolute;
+    bottom: 100%; /* Posiciona acima do botão */
+    right: 0;
+    margin-bottom: 0.5rem;
+}
+
+.period-selector.active .period-dropdown {
+    display: block;
+}
+
+
+.period-toggle {
+    background-color: #2eafa9f1;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+
+
+.period-toggle:hover {
+    background-color: #8FD6D9;
+}
+
+.period-dropdown {
+    display: none;
+    background: rgb(241, 241, 241);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+}
+
+.period-selector.active .period-dropdown {
+    display: block;
+}
+
+.date-range {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.date-picker label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.date-picker input {
+    padding: 0.4rem;
+    color: #000000;
+    background-color: #dee3e4;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.period-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.period-actions .btn-clear,
+.period-actions .btn-apply {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+     text-align: center;       /* Centraliza o texto horizontalmente */
+    text-decoration: none;   /* Remove qualquer sublinhado */
+    display: flex;           /* Permite centralização vertical */
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center;
+}
+
+.period-actions .btn-clear {
+    background-color: #ccc;
+    color: #333;
+}
+
+.period-actions .btn-clear:hover {
+    background-color: #bbb;
+}
+
+.period-actions .btn-apply {
+    background-color: #63a2a7;
+    color: white;
+}
+
+.period-actions .btn-apply:hover {
+    background-color: #4b8b91;
+}
+/*==================selecionar data tabela============*/
+
+/*==================selecionar data card============*/
+
+.period-selector-card {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column-reverse; /* Inverte a ordem: dropdown vem acima do botão */
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.period-dropdown-card {
+    display: none;
+    background: rgb(241, 241, 241);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 220px;
+    position: absolute;
+    bottom: -175px; /* Posiciona acima do botão */
+    right: 0;
+    margin-bottom: 0.5rem;
+}
+
+.period-selector-card.active .period-dropdown-card {
+    display: block;
+}
+
+.period-toggle-card {
+    background-color: #2eafa9f1;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.period-toggle-card:hover {
+    background-color: #8FD6D9;
+}
+
+.date-range-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.date-picker-card label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.date-picker-card input {
+    padding: 0.4rem;
+    color: #000000;
+    background-color: #dee3e4;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.period-actions-card {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.period-actions-card .btn-clear-card,
+.period-actions-card .btn-apply-card {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+      text-align: center;       /* Centraliza o texto horizontalmente */
+    text-decoration: none;   /* Remove qualquer sublinhado */
+    display: flex;           /* Permite centralização vertical */
+    align-items: center;     /* Centraliza verticalmente */
+    justify-content: center;
+}
+
+.period-actions-card .btn-clear-card {
+    background-color: #ccc;
+    color: #333;
+}
+
+.period-actions-card .btn-clear-card:hover {
+    background-color: #bbb;
+}
+
+.period-actions-card .btn-apply-card {
+    background-color: #63a2a7;
+    color: white;
+}
+
+.period-actions-card .btn-apply-card:hover {
+    background-color: #4b8b91;
+}
+/*==================selecionar data card============*/
+
+.delete-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+}
+
+.delete-history-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.delete-history-btn:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+
+
+/* Ajustes para a tabela de IMC */
+.history-header, .history-item {
+    grid-template-columns: 1fr 2fr; /* Layout de 2 colunas para IMC */
+}
+
+.header-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+
+
+/* ====== FOOTER ====== */
+footer {
+    background: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.footer-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+/*==============footer=================*/
+
+.timeline-comparison {
+  background-color: #8FD6D940 ;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 6px solid #8FD6D9;
+}
+
+.comparison-title {
+  display: inline-block; /* Faz a caixa se ajustar ao conteúdo */
+  text-align: left; /* Alinhamento à esquerda */
+  font-size: 1.5rem; /* Tamanho do texto */
+  font-weight: bold; /* Negrito */
+  color: #2c3e50; /* Cor do texto */
+  background-color: #8FD6D9; /* Cor de fundo da caixa */
+  padding: 12px 20px; /* Espaçamento interno */
+  border-radius: 100px; /* Cantos arredondados */ /* Borda lateral azul */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+  margin: 20px 0; /* Margem externa */
+}
+
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.timeline-card {
+  background-color: #e6e6ee; /* Cinza sólido */
+  /* ou para uma cor mais vibrante: */
+  /* background-color: #f0f0f0; */
+  border-radius: 8px;
+  padding: 100px 55px 15px;
+  width: 180px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adicionei sombra para melhor visualização */
+  text-align: center;
+  margin: 0 50px;
+  position: relative;
+  opacity: 1; /* Garante que não está transparente */
+}
+
+.timeline-card .card-date {
+  font-size: 1rem; /* Tamanho ligeiramente reduzido */
+  font-weight: bold;
+  color: #000000;
+  padding: 4px 50px; /* Redução significativa no padding (vertical horizontal) */
+  border-radius: 5px 5px 0px 0px;
+  display: inline-block;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Sombra mais suave */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin: 0; /* Removida margem inferior */
+  line-height: 5; /* Controle preciso da altura do texto */
+  min-width: max-content; /* Garante comportamento responsivo */
+}
+.timeline-card:nth-child(1) .card-date { background-color: #EA7D71; }
+.timeline-card:nth-child(3) .card-date { background-color: #B7D7D7; }
+
+
+.timeline-card .card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 50px; /* Espaço entre o valor e a classificação */
+  text-align: center; /* Garante centralização */
+}
+
+.timeline-card .card-classification {
+  font-size: 1rem;
+  color: #202020;
+  text-align: center; /* Centraliza o texto */
+  margin-top: 0; /* Remove margem superior */
+  margin-bottom: 10px; /* Espaço abaixo da classificação */
+  display: block; /* Garante que ocupa toda a linha */
+}
+
+/* Estilos para as setas bidirecionais */
+.double-arrow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.variation-value {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.variation-value.positive {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.variation-value.negative {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.double-arrow {
+  width: 100px;
+  height: 2px;
+  background-color: #3498db;
+  position: relative;
+}
+
+.double-arrow::before,
+.double-arrow::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.double-arrow::before {
+  left: -5px;
+  border-right: 10px solid #3498db;
+}
+
+.double-arrow::after {
+  right: -5px;
+  border-left: 10px solid #3498db;
+}
+
+.card-imc, .card-cls {
+  white-space: nowrap;
+  font-weight: bold;
+  font-family: 'Karla', sans-serif; /* Corrigido para usar a fonte Karla */
+  font-style: italic; /* Mantido itálico como solicitado inicialmente */
+  font-size: 1rem;
+  color: #000000;
+  text-align: left; /* Alinhado à esquerda */
+  margin: 10px 0;
+  padding: 8px 12px;
+  display: inline-block;
+  margin-left: 0; /* Remove qualquer margem esquerda */
+  padding-left: 5px; /* Reduz o padding esquerdo se necessário */
+}
+.card-cls {
+  white-space: nowrap;
+  font-weight: bold;
+  font-family: 'Karla', sans-serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #000000;
+  text-align: center; /* Centraliza o texto */
+  margin: 12px auto; /* Margem automática nas laterais para centralizar */
+  padding: 8px 12px;
+  display: block; /* Muda para block para ocupar toda a largura */
+  width: fit-content; /* Faz a largura se ajustar ao conteúdo */
+  position: relative;
+  left: 50%; /* Move 50% para a direita */
+  transform: translateX(-50%); /* Corrige a posição para centralizar perfeitamente */ /* Opcional: fundo para destacar *//* Opcional: cantos arredondados */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .timeline-row {
+    flex-direction: column;
+  }
+  
+  .timeline-card {
+    margin: 10px 0;
+  }
+  
+  .double-arrow {
+    width: 2px;
+    height: 40px;
+  }
+  
+  .double-arrow::before {
+    top: -5px;
+    left: -4px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 10px solid #3498db;
+  }
+  
+  .double-arrow::after {
+    bottom: -5px;
+    right: auto;
+    left: -4px;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 10px solid #3498db;
+  }
+}
+
+
+
+/* Estilo para cards pareados (quando estão na mesma linha) */
+.paired-card {
+  margin-top: 60px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column;
+  }
+  
+  .timeline-column {
+    width: 100%;
+    align-items: center ;
+    padding: 0 !important;
+  }
+  
+  .timeline-arrows {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  
+  .arrow-down {
+    width: 40px;
+    height: 2px;
+  }
+  
+  .arrow-down::after {
+    bottom: -4px;
+    left: auto;
+    right: -5px;
+    border-left: 5px solid transparent;
+    border-right: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #3498db;
+  }
+  
+  .paired-card {
+    margin-top: 0;
+  }
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timeline-column {
+    width: 100%;
+    align-items: center !important;
+  }
+  
+  .timeline-arrows {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .arrow-container {
+    flex-direction: row;
+  }
+  
+  .variation-value {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+  
+  .arrow-right {
+    width: 30px;
+  }
+  
+  .arrow-down {
+    height: 30px;
+  }
+  
+  .paired-card {
+    margin-left: 0;
+  }
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .header-group {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-header, 
+    .history-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-group {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .item-values {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    .imc-history {
+        padding: 2rem 1rem 1rem;
+        margin-top: 3rem;
+    }
+    
+    .imc-history h1 {
+        padding: 8px 20px;
+        font-size: 1.5rem;
+        top: -20px;
+    }
+}
