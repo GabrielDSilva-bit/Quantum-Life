@@ -138,7 +138,7 @@ a {
 .quiz-question {
     color: black;
     font-family: "Karla", -apple-system, Roboto, Helvetica, sans-serif;
-    font-size: 31px;
+    font-size: 29px;
     font-weight: 500;
     text-align: center;
     margin-top: 30px;
@@ -191,7 +191,7 @@ a {
 /* Quiz Options */
 .quiz-options {
     width: 918px;
-    height: 215px;
+    height: 240px;
     margin: 25px auto;
     display: flex;
     flex-direction: column;
@@ -288,6 +288,10 @@ footer {
 
 /* Media Queries */
 @Media (max-width: 1550px){
+    .quiz-container {
+        padding-top: 52px;
+    }
+
     .quiz-frame {
         margin-left: 10%;
         width: 1080px;
@@ -312,24 +316,26 @@ footer {
         width: 241px;
     }
 
-    .progress-group
-
     .progress-line {
         width: 35px;
         height: 5px;
     }
     
     .quiz-options {
-        gap: 37px
+        gap: 25px
     }
 
     .quiz-option {
         width: 625px;
-        height: 25px;
+        height: 33px;
     }
 
     .option-text{
-        font-size: 13px;
+        font-size: 14px;
+    }
+
+    .navigation-buttons{
+        margin-top: 6px;
     }
 }
 @media (max-width: 991px) {
