@@ -191,7 +191,7 @@ a {
 /* Quiz Options */
 .quiz-options {
     width: 918px;
-    height: 244px;
+    height: 215px;
     margin: 25px auto;
     display: flex;
     flex-direction: column;
@@ -289,9 +289,9 @@ footer {
 /* Media Queries */
 @Media (max-width: 1550px){
     .quiz-frame {
-        margin-left: 12%;
+        margin-left: 10%;
         width: 1080px;
-        height: 500px;
+        height: 480px;
     }
 
     .quiz-title-container {
@@ -312,18 +312,24 @@ footer {
         width: 241px;
     }
 
+    .progress-group
+
     .progress-line {
         width: 35px;
         height: 5px;
     }
     
     .quiz-options {
-        gap: 40px
+        gap: 37px
     }
 
     .quiz-option {
         width: 625px;
         height: 25px;
+    }
+
+    .option-text{
+        font-size: 13px;
     }
 }
 @media (max-width: 991px) {
