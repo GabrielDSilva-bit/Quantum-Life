@@ -244,6 +244,49 @@ a {
     line-height: 140%;
 }
 
+.quiz-option:hover {
+    background-color: #2b8864;
+    color: white;
+    border-color: #699495;
+    cursor: pointer;
+}
+
+.quiz-option:hover .option-text {
+    color: white;
+}
+
+.quiz-option:hover .option-circle {
+    border-color: white;
+}
+
+.quiz-option {
+    transition: all 0.3s ease;
+}
+
+.option-circle {
+    transition: all 0.3s ease;
+}
+
+.option-text {
+    transition: all 0.3s ease;
+}
+
+.quiz-option.selected {
+    background-color: #699495;
+    color: white;
+    border-color: #699495;
+}
+
+.quiz-option.selected .option-text {
+    color: white;
+}
+
+.quiz-option.selected .option-circle {
+    background-color: white;
+    border-color: white;
+}
+
+
 /* Navigation Buttons */
 .navigation-buttons {
     display: flex;
