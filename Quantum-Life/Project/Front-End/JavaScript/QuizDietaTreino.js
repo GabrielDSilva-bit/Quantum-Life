@@ -1,28 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const options = document.querySelectorAll('.quiz-option');
-    const nextButton = document.getElementById('next-button');
-    let selectedOption = null;
+// Seleção de elementos
+const options = document.querySelectorAll('.quiz-option');
+const finishButton = document.getElementById('finish-button');
 
-    options.forEach(option => {
-        option.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            // Remove seleção anterior
-            options.forEach(o => o.classList.remove('selected'));
-
-            // Adiciona seleção
-            option.classList.add('selected');
-
-            // Armazena o link da opção
-            selectedOption = option.getAttribute('data-target');
-        });
+// Adiciona a classe "selected" quando uma opção é clicada
+options.forEach(option => {
+    option.addEventListener('click', () => {
+        options.forEach(o => o.classList.remove('selected')); // Remove de todos
+        option.classList.add('selected'); // Adiciona no clicado
     });
+});
 
-    nextButton.addEventListener('click', () => {
-        if (selectedOption) {
-            window.location.href = selectedOption;
-        } else {
-            alert('Por favor, selecione uma opção antes de continuar!');
-        }
-    });
+// Ação do botão Finalizar
+finishButton.addEventListener('click', () => {
+    const selectedOption = document.querySelector('.quiz-option.selected');
+
+    if (selectedOption) {
+        console.log('Você selecionou:', selectedOption.innerText.trim());
+        // Redireciona para a página de resultado
+        window.location.href = '../resultado-treino.html';
+    } else {
+        console.log('Por favor, selecione uma opção antes de finalizar.');
+        alert('Por favor, selecione uma opção antes de finalizar o quiz.');
+    }
 });
