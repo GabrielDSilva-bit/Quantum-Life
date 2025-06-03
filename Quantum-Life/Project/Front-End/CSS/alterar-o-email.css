@@ -1,327 +1,349 @@
+/* Reset básico para todos os elementos HTML */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
+    margin: 0;          /* Remove todas as margens padrão */
+    padding: 0;         /* Remove todos os paddings padrão */
+    box-sizing: border-box; /* Faz padding e border serem incluídos na largura/altura */
+    font-family: 'Karla', sans-serif; /* Define a fonte padrão para todo o site */
 }
 
+/* Estilos para o corpo (body) do documento */
 body {
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 100px; /* Espaço para o footer */
+    background-color: white; /* Define cor de fundo branca */
+    min-height: 100vh;      /* Garante que o body ocupe pelo menos toda a altura da tela */
+    display: flex;          /* Ativa o modelo flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    padding-bottom: 0.2;  /* Adiciona espaço na parte inferior para o footer */
 }
 
-/* Header */
+/* ========== HEADER ========== */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0.1rem;
-    background: white;
-    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    display: flex;          /* Ativa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente */
+    padding: 1rem 0.1rem;   /* Espaçamento interno (1rem top/bottom, 0.1rem left/right) */
+    background: white;      /* Cor de fundo branca */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25); /* Sombra com blur de 60px */
+    position: sticky;       /* Fixa o header no topo ao rolar */
+    top: 0;                 /* Posiciona no topo da viewport */
+    z-index: 999;           /* Garante que fique acima de outros elementos */
 }
 
+/* Container dentro do header para organização */
 header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espaço entre os itens */
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1rem;
+    width: 100%;            /* Ocupa 100% da largura disponível */
+    max-width: 1200px;      /* Largura máxima de 1200px */
+    padding: 0 1rem;        /* Espaçamento horizontal interno */
 }
 
+/* Estilo para a imagem dentro do header */
 header img {
-    margin-left: 0;
-    padding-left: 0px;
-    max-width: 50px;
+    margin-left: 0;         /* Remove margem esquerda */
+    padding-left: 0px;      /* Remove padding esquerdo */
+    max-width: 50px;        /* Largura máxima de 50px */
 }
 
+/* Classe para imagens que funcionam como barra de navegação */
 .image-bar {
-    cursor: pointer;
+    cursor: pointer;        /* Muda o cursor para pointer (mão) */
 }
 
+/* Barra de navegação principal */
 nav {
-    display: flex;
-    gap: 3rem;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-left: auto;
-    margin-right: 1rem;
-    padding-right: 16%;
-    padding-left: 0%;
+    display: flex;          /* Ativa flexbox */
+    gap: 3rem;              /* Espaço de 3rem entre os itens */
+    font-size: 1rem;        /* Tamanho da fonte */
+    font-weight: 700;       /* Peso da fonte (negrito) */
+    margin-left: auto;      /* Empurra para a direita */
+    margin-right: 1rem;     /* Margem direita de 1rem */
+    padding-right: 16%;     /* Padding direito de 16% da largura */
+    padding-left: 0%;       /* Remove padding esquerdo */
 }
 
+/* Estilo para todos os elementos filhos diretos da nav */
 nav > * {
-    padding: 0.1rem 0.1rem;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+    padding: 0.1rem 0.1rem; /* Pequeno padding interno */
+    border-radius: 10px;    /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Transição suave para hover */
 }
 
+/* Efeito hover nos itens da nav */
 nav > *:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05); /* Fundo semi-transparente */
+    cursor: pointer;        /* Muda o cursor para pointer */
 }
 
+/* Classe para a barra de navegação */
 .nav-bar {
-    cursor: pointer;
+    cursor: pointer;        /* Muda o cursor para pointer */
 }
 
+/* Estilo base para links */
 a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit;         /* Herda a cor do elemento pai */
+    text-decoration: none;  /* Remove sublinhado padrão */
 }
 
+/* Estilo do botão ENTRAR */
 .btn-entrar {
-    background-color: #A5BEA9;
-    color: white;
-    border: 2px solid #A5BEA9;
-    outline: none;
-    padding: 0.8rem 2.3rem;
-    letter-spacing: 1px;
-    border-radius: 55px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    background-color: #A5BEA9; /* Cor de fundo verde clara */
+    color: white;           /* Texto branco */
+    border: 2px solid #A5BEA9; /* Borda com mesma cor do fundo */
+    outline: none;          /* Remove contorno padrão */
+    padding: 0.8rem 2.3rem; /* Espaçamento interno */
+    letter-spacing: 1px;    /* Espaçamento entre letras */
+    border-radius: 55px;    /* Bordas completamente arredondadas */
+    font-size: 13px;        /* Tamanho da fonte */
+    font-weight: 700;       /* Peso da fonte (negrito) */
+    cursor: pointer;        /* Muda cursor para pointer */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Animações suaves */
 }
 
+/* Efeito hover do botão ENTRAR */
 .btn-entrar:hover {
-    background-color: #ffffff;
-    color: #A5BEA9;
-    border: 2px solid #A5BEA9;
-    transform: scale(1.05);
+    background-color: #ffffff; /* Fundo branco */
+    color: #A5BEA9;         /* Texto verde */
+    border: 2px solid #A5BEA9; /* Mantém borda verde */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
 }
 
-/* Container principal */
+/* ========== CONTAINER PRINCIPAL ========== */
 .container-box {
-    background-color: #E8E8E8;
-    width: 100%;
-    min-height: 762px;
-    border-radius: 0px;
-    border: #45694b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    flex: 1;
+    background-color: #E8E8E8; /* Cor de fundo cinza claro */
+    width: 100%;            /* Largura total */
+    min-height: 769px;      /* Altura mínima fixa */
+    border-radius: 0px;     /* Sem bordas arredondadas */
+    border: #45694b;        /* Cor da borda (não tem width/style definido) */
+    display: flex;          /* Ativa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente */
+    padding: 2rem;        /* Espaçamento interno grande */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    flex: 1;               /* Cresce para ocupar espaço disponível */
 }
 
 /* Container do formulário de email */
 .email-container {
-    background-color: #B6C8B8;
-    width: 100%;
-    max-width: 1500px;
-    padding: 4rem;
-    border-radius: 15px;
+    background-color: #B6C8B8; /* Cor de fundo verde muito claro */
+    width: 90%;            /* Largura total */
+    max-width: 1500px;      /* Largura máxima */
+    padding: 2rem;          /* Espaçamento interno grande */
+    border-radius: 10px;    /* Bordas levemente arredondadas */
     box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.15),
-        inset 0 1px 3px rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 0, 0, 0.05);
+        0 6px 10px rgba(0, 0, 0, 0.15), /* Sombra externa */
+        inset 0 1px 3px rgba(255, 255, 255, 0.4); /* Sombra interna para efeito 3D */
+    border: 1px solid rgba(255, 0, 0, 0.05); /* Borda quase transparente */
 }
 
+/* Conteúdo dentro do container de email */
 .email-content {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: column; /* Organiza os filhos em coluna */
+    gap: 1.5rem;           /* Espaço entre os elementos filhos */
 }
 
+/* Título do formulário */
 .email-title {
-    width: 100%;
-    max-width: 319px;
-    min-height: auto;
-    padding: 0.8rem 1.5rem;
-    color: white;
-    background: #7F9D92;
-    border-radius: 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;           /* Largura total */
+    max-width: 319px;      /* Largura máxima específica */
+    min-height: auto;      /* Altura mínima automática */
+    padding: 0.8rem 1.5rem; /* Espaçamento interno */
+    color: white;          /* Texto branco */
+    background: #7F9D92;   /* Cor de fundo verde água */
+    border-radius: 20px;   /* Bordas completamente arredondadas */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    font-size: 2rem;
-    margin: 0 0 1.5rem 0;
-    text-align: left;
-    align-self: flex-start;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    align-items: flex-start; /* Alinha itens à esquerda */
+    justify-content: center; /* Centraliza verticalmente */
+    font-size: 1.8rem;       /* Tamanho grande de fonte */
+    margin: 0 0 1.5rem 0;  /* Margem apenas na parte inferior */
+    text-align: left;      /* Alinhamento de texto à esquerda */
+    align-self: flex-start; /* Alinha o elemento à esquerda */
 }
 
-/* Formulário */
+/* ========== FORMULÁRIO ========== */
 .email-form {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: column; /* Organiza em coluna */
+    gap: 1.5rem;           /* Espaço entre elementos */
 }
 
+/* Grupo de campos do formulário */
 .form-group {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: column; /* Organiza em coluna */
+    gap: 0.5rem;           /* Espaço entre label e input */
 }
 
+/* Estilo das labels do formulário */
 .form-label {
-    font-weight: 600;
-    color: #050505;
-    font-size: 1.5rem;
+    font-weight: 600;      /* Peso da fonte (semi-negrito) */
+    color: #050505;        /* Cor quase preta */
+    font-size: 1.3rem;     /* Tamanho grande de fonte */
 }
 
+/* Campos de input do formulário */
 .form-input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid #000000;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    background-color: #B6C8B8;
-    color: #333;
+    width: 100%;           /* Largura total */
+    padding: 0.8rem 1rem;  /* Espaçamento interno */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid #000000; /* Borda preta */
+    border-radius: 8px;    /* Bordas levemente arredondadas */
+    font-size: 1.2rem;     /* Tamanho grande de fonte */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+    background-color: #B6C8B8; /* Cor de fundo igual ao container */
+    color: #333;           /* Cor de texto cinza escuro */
 }
 
+/* Estado focus dos inputs */
 .form-input:focus {
-    outline: none;
-    border-color: #0f0f0f;
-    box-shadow: 0 0 0 2px rgba(165, 190, 169, 0.2);
-    background-color: #a0bb9a;
-    color: #000;
+    outline: none;         /* Remove contorno padrão */
+    border-color: #0f0f0f; /* Escurece a borda */
+    box-shadow: 0 0 0 2px rgba(165, 190, 169, 0.2); /* Sombra de foco */
+    background-color: #a0bb9a; /* Muda cor de fundo */
+    color: #000;           /* Texto preto */
 }
 
-/* Botões */
+/* ========== BOTÕES DO FORMULÁRIO ========== */
 .form-actions {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-left: auto;
-    margin-top: 2rem;
+    justify-content: center; /* Centraliza os botões */
+    gap: 2rem;            /* Espaço entre botões */
+    margin-left: auto;     /* Empurra para a direita */
+    margin-top: 2rem;      /* Espaço acima */
 }
 
+/* Botão CONFIRMAR */
 .btn-confirm {
-    background-color: #45694b;
-    color: white;
-    border: 2px solid #5f7c64;
-    padding: 0.8rem 1.8rem;
-    border-radius: 55px;
-    font-weight: 700;
-     font-size: 2rem;
-    margin-left: auto;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.btn-cancel {
-    background-color: #95b39a;
-    color: white;
-    font-size: 2rem;
-    border: 2px solid #6a9170;
-    padding: 0.8rem 1.8rem;
-    border-radius: 55px;
-    font-weight: 700;
-    margin-left: auto;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.btn-cancel {
-    background-color: transparent;
-    color: #666;
-    border: 2px solid #ddd;
+    background-color: #45694b; /* Verde escuro */
+    color: white;           /* Texto branco */
+    border: 2px solid #5f7c64; /* Borda verde mais clara */
+    padding: 0.8rem 1.8rem; /* Espaçamento interno */
+    border-radius: 55px;    /* Bordas completamente arredondadas */
+    font-weight: 700;       /* Peso da fonte (negrito) */
+    font-size: 1.3rem;        /* Tamanho grande de fonte */
+    margin-left: auto;      /* Empurra para a direita */
+    cursor: pointer;        /* Muda cursor para pointer */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
 }
 
+/* Botão CANCELAR */
+.btn-cancel {
+    background-color: #95b39a; /* Verde claro */
+    color: white;           /* Texto branco */
+    font-size: 1.3rem;        /* Tamanho grande de fonte */
+    border: 2px solid #6a9170; /* Borda verde */
+    padding: 0.8rem 1.8rem; /* Espaçamento interno */
+    border-radius: 55px;    /* Bordas completamente arredondadas */
+    font-weight: 700;       /* Peso da fonte (negrito) */
+    margin-left: auto;      /* Empurra para a direita */
+    cursor: pointer;        /* Muda cursor para pointer */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+}
+
+/* Sobrescrita do botão CANCELAR (duplicado no CSS original) */
+.btn-cancel {
+    background-color: transparent; /* Fundo transparente */
+    color: #666;           /* Texto cinza */
+    border: 2px solid #ddd; /* Borda cinza claro */
+}
+
+/* Efeito hover do botão CANCELAR */
 .btn-cancel:hover {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* Fundo cinza muito claro */
 }
 
+/* Sobrescrita do botão CONFIRMAR (duplicado no CSS original) */
 .btn-confirm {
-    background-color: #45694b;
-    color: white;
-    border: 2px solid #A5BEA9;
+    background-color: #45694b; /* Verde escuro */
+    color: white;           /* Texto branco */
+    border: 2px solid #A5BEA9; /* Borda verde clara */
 }
 
+/* Efeito hover do botão CONFIRMAR */
 .btn-confirm:hover {
-    background-color: #89bd90;
-    transform: translateY(-1px);
+    background-color: #89bd90; /* Verde mais claro */
+    transform: translateY(-1px); /* Move levemente para cima */
 }
 
-
-/* Footer */
+/* ========== FOOTER ========== */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: white;
-    padding: 1rem;
-    text-align: center;
-    font-size: 0.8rem;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.social-icons {
-    margin-top: 1rem;
-}
-
-.social-icons img {
-    width: 40px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.social-icons img:hover {
-    transform: scale(1.1);
+  background: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  box-shadow: 0px 4px 90px rgba(0, 0, 0, 0.25);
+  
 }
 
 .footer-text {
-    margin-top: 0.5rem;
-    color: #666;
+  padding-top: 1%;
 }
 
-/* Responsividade */
+.social-icons {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 35px;
+  margin: 0 10px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablet (até 768px) */
 @media (max-width: 768px) {
     .email-container {
-        padding: 1.5rem;
+        padding: 1.5rem;   /* Reduz o padding */
     }
     
     .form-actions {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Coloca botões em coluna */
+        align-items: center;    /* Centraliza os botões */
     }
     
     nav {
-        gap: 1.5rem;
-        padding-right: 1rem;
+        gap: 1.5rem;       /* Reduz espaço entre itens */
+        padding-right: 1rem; /* Reduz padding direito */
     }
     
     header .container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
+        flex-wrap: wrap;    /* Permite quebra de linha */
+        justify-content: center; /* Centraliza itens */
+        gap: 1rem;         /* Espaço entre itens */
     }
     
     .btn-entrar {
-        order: 1;
+        order: 1;          /* Muda ordem para aparecer depois */
     }
 }
 
+/* Mobile (até 480px) */
 @media (max-width: 480px) {
     .email-container {
-        padding: 1.2rem;
+        padding: 1.2rem;   /* Reduz ainda mais o padding */
     }
     
     .email-title {
-        font-size: 1rem;
-        padding: 0.8rem;
+        font-size: 1rem;   /* Reduz tamanho do título */
+        padding: 0.8rem;   /* Reduz padding */
     }
     
     .container-box {
-        padding: 1rem;
+        padding: 1rem;     /* Reduz padding do container principal */
     }
     
     .form-input {
-        padding: 0.7rem;
+        padding: 0.7rem;   /* Reduz padding dos inputs */
     }
     
     .form-actions {
-        gap: 1rem;
+        gap: 1rem;         /* Reduz espaço entre botões */
     }
 }

@@ -1,164 +1,169 @@
+/* Define estilo global para todos os elementos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
+    margin: 0; /* Remove margens padrão dos elementos */
+    padding: 0; /* Remove preenchimentos padrão */
+    box-sizing: border-box; /* Faz com que padding e border sejam incluídos na largura/altura total */
+    font-family: 'Karla', sans-serif; /* Define a fonte principal do site */
 }
 
+/* Estiliza o body da página */
 body {
-    background-color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 100px; /* Espaço para o footer */
+    background-color: white; /* Define o fundo como branco */
+    min-height: 100vh; /* Garante que o corpo ocupe no mínimo 100% da altura da viewport */
+    display: flex; /* Ativa o modelo flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    padding-bottom: 100px; /* Cria espaço inferior para o rodapé (footer) */
 }
 
-/* Header */
+/* ====== HEADER ====== */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0.1rem;
-    background: white;
-    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    display: flex; /* Ativa flexbox */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 1rem 0.1rem; /* Espaçamento interno vertical de 1rem e horizontal de 0.1rem */
+    background: white; /* Fundo branco */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25); /* Sombra projetada */
+    position: sticky; /* Faz o header grudar no topo ao rolar */
+    top: 0; /* Posiciona no topo */
+    z-index: 999; /* Garante que fique acima dos outros elementos */
 }
 
+/* Container dentro do header */
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 1rem;
+    display: flex; /* Ativa flexbox */
+    justify-content: space-between; /* Espaça os elementos com máximo de distância */
+    align-items: center; /* Alinha verticalmente */
+    width: 100%; /* Largura total */
+    max-width: 1200px; /* Largura máxima */
+    padding: 0 1rem; /* Espaço lateral interno */
 }
 
+/* Logo no header */
 header img {
-    margin-left: 0;
-    padding-left: 0px;
-    max-width: 50px;
+    margin-left: 0; /* Remove margem esquerda */
+    padding-left: 0px; /* Remove preenchimento à esquerda */
+    max-width: 50px; /* Largura máxima da imagem */
 }
 
 .image-bar {
-    cursor: pointer;
+    cursor: pointer; /* Altera o cursor para mãozinha ao passar o mouse */
 }
 
+/* Estilo da barra de navegação */
 nav {
-    display: flex;
-    gap: 3rem;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-left: auto;
-    margin-right: 1rem;
-    padding-right: 16%;
-    padding-left: 0%;
+    display: flex; /* Flexbox para itens */
+    gap: 3rem; /* Espaçamento entre os itens */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 700; /* Fonte em negrito */
+    margin-left: auto; /* Empurra o nav para a direita */
+    margin-right: 1rem; /* Espaço à direita */
+    padding-right: 16%; /* Preenchimento à direita */
+    padding-left: 0%; /* Sem preenchimento à esquerda */
 }
 
 nav > * {
-    padding: 0.1rem 0.1rem;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+    padding: 0.1rem 0.1rem; /* Espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados */
+    transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
 }
 
 nav > *:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05); /* Fundo levemente cinza ao passar o mouse */
+    cursor: pointer; /* Cursor de clique */
 }
 
 .nav-bar {
-    cursor: pointer;
+    cursor: pointer; /* Cursor de clique */
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+    color: inherit; /* Herda cor do texto do elemento pai */
+    text-decoration: none; /* Remove sublinhado dos links */
 }
 
+/* Botão "Entrar" */
 .btn-entrar {
-    background-color: #A5BEA9;
-    color: white;
-    border: 2px solid #A5BEA9;
-    outline: none;
-    padding: 0.8rem 2.3rem;
-    letter-spacing: 1px;
-    border-radius: 55px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    background-color: #A5BEA9; /* Verde claro */
+    color: white; /* Cor do texto */
+    border: 2px solid #A5BEA9; /* Mesma cor da borda */
+    outline: none; /* Remove contorno ao focar */
+    padding: 0.8rem 2.3rem; /* Espaçamento interno */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    border-radius: 55px; /* Cantos bem arredondados */
+    font-size: 13px; /* Tamanho da fonte */
+    font-weight: 700; /* Negrito */
+    cursor: pointer; /* Cursor de clique */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Animações suaves */
 }
 
 .btn-entrar:hover {
-    background-color: #ffffff;
-    color: #A5BEA9;
-    border: 2px solid #A5BEA9;
-    transform: scale(1.05);
+    background-color: #ffffff; /* Muda fundo para branco */
+    color: #A5BEA9; /* Muda texto para verde */
+    border: 2px solid #A5BEA9; /* Borda mantém cor */
+    transform: scale(1.05); /* Aumenta levemente o botão */
 }
 
-/* Container principal */
+/* ====== CONTAINER PRINCIPAL ====== */
 .container-box {
-    background-color: #E8E8E8;
-    width: 100%;
-    min-height: 100%;
-    border-radius: 0px;
-    border: #45694b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5rem;
-    /* Remova o box-shadow do container-box ou ajuste para mais suave */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    flex: 1;
+    background-color: #E8E8E8; /* Fundo cinza claro */
+    width: 100%; /* Largura total */
+    min-height: 100%; /* Altura mínima total */
+    border-radius: 0px; /* Sem cantos arredondados */
+    border: #45694b; /* Borda definida, mas incompleta (sem estilo ou largura) */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 2.5rem; /* Espaçamento interno */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra leve */
+    flex: 1; /* Ocupa todo espaço possível no flex container */
 }
 
-/* Container do formulário de senha */
+/* ====== FORMULÁRIO DE SENHA ====== */
 .senha-container {
-    background-color: #B6C8B8;
-    width: 100%;
-    max-width: 1500px;
-    padding: 0.5rem;
-    border-radius: 15px;
-    /* Sombra mais visível - versão otimizada */
+    background-color: #B6C8B8; /* Verde claro */
+    width: 70%; /* Largura total */
+    max-width: 1500px; /* Largura máxima */
+    padding: 2.5rem; /* Espaço interno */
+    border-radius: 15px; /* Cantos arredondados */
     box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.15),
-        inset 0 1px 3px rgba(255, 255, 255, 0.4);
-    /* Adicione um contorno sutil para melhor definição */
-    border: 1px solid rgba(255, 0, 0, 0.05);
+        0 6px 20px rgba(0, 0, 0, 0.15), /* Sombra externa */
+        inset 0 1px 3px rgba(255, 255, 255, 0.4); /* Sombra interna */
+    border: 1px solid rgba(255, 0, 0, 0.05); /* Borda com cor quase invisível */
 }
 
 .senha-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Direção vertical */
+    gap: 1.5rem; /* Espaço entre elementos */
 }
 
 .senha-title {
-    width: 100%; /* Mantém a largura responsiva */
+    width: 100%; /* Largura total */
     max-width: 403px; /* Largura máxima */
-    min-height: auto;
-    padding: 0.8rem 1.5rem;
-    color: white;
-    background: #7F9D92;
-    border-radius: 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinha itens à esquerda */
-    justify-content: center; /* Centraliza verticalmente */
-    font-size: 1.9rem;
-    margin: 0 0 1.5rem 0; /* Remove margin-auto (centralização) */
-    text-align: left;
-    align-self: flex-start; /* Alinha o próprio container à esquerda */
+    min-height: auto; /* Altura mínima automática */
+    padding: 0.8rem 1.5rem; /* Espaço interno */
+    color: white; /* Texto branco */
+    background: #7F9D92; /* Cor de fundo */
+    border-radius: 16px; /* Cantos arredondados */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Direção vertical */
+    align-items: flex-start; /* Alinhamento à esquerda */
+    justify-content: center; /* Centralização vertical */
+    font-size: 1.8rem; /* Tamanho da fonte */
+    margin: 0 0 1.5rem 0; /* Margem inferior */
+    text-align: left; /* Alinhamento do texto à esquerda */
+    align-self: flex-start; /* Alinha o bloco à esquerda */
 }
-/* Formulário */
+
+/* Formulário em si */
 .senha-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
+/* Grupo de formulário com rótulo e input */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -166,9 +171,9 @@ a {
 }
 
 .form-label {
-    font-weight: 600;
+    font-weight: 600; /* Seminegrito */
     color: #050505;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .form-input {
@@ -177,20 +182,21 @@ a {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid #000000;
     border-radius: 8px;
-    font-size: 1.6rem;
-    transition: all 0.3s ease; /* Alterado para 'all' para animar todas as propriedades */
-    background-color: #B6C8B8; /* Cor de fundo padrão */
-    color: #333; /* Cor do texto */
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    background-color: #B6C8B8;
+    color: #333;
 }
 
 .form-input:focus {
     outline: none;
     border-color: #0f0f0f;
     box-shadow: 0 0 0 2px rgba(165, 190, 169, 0.2);
-    background-color: #a0bb9a; /* Nova cor de fundo quando em foco */
-    color: #000; /* Cor do texto quando em foco */
+    background-color: #a0bb9a;
+    color: #000;
 }
-/* Requisitos da senha */
+
+/* Texto de requisitos de senha */
 .senha-request {
     font-size: 1.1rem;
     margin-top: 1rem;
@@ -199,56 +205,49 @@ a {
 }
 
 .senha-request h1 {
-    font-size: 1.5rem; /* ou o tamanho que desejar */
-    margin: 0; /* opcional: remove margens padrão do h1 */
+    font-size: 1.5rem;
+    margin: 0;
 }
-
 
 .request-item {
     position: relative;
     color: #030303;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0.9rem;
     display: flex;
     align-items: center;
 }
-.senha-request{
 
+.senha-request {
     font-size: 1.5rem;
-   
-
 }
 
 .special-char {
-    margin-right: 0.3rem; /* Espaço após o caractere especial */
+    margin-right: 0.3rem;
 }
 
 .request-checkbox {
     display: inline-block;
     width: 16px;
-    font-size: 2rem;
     height: 16px;
+    font-size: 2rem;
     border: 2px solid #D9D9D9;
-    border-radius: 50%; /* Torna completamente circular */
+    border-radius: 50%;
     margin-right: 0.5rem;
     position: relative;
-    background-color: white; /* Fundo branco */
-    transition: all 0.3s ease; /* Transição suave */
+    background-color: white;
+    transition: all 0.3s ease;
 }
 
 .request-item:hover {
-   height: auto;
+    height: auto;
 }
 
-
-
-/* Quando o checkbox está marcado (via JavaScript) */
 .request-checkbox.checked {
-    background-color: black; /* Fundo preto quando marcado */
-    border-color: black; /* Borda preta quando marcado */
+    background-color: black;
+    border-color: black;
 }
 
-/* Opcional: ícone de check branco quando marcado */
 .request-checkbox.checked::after {
     content: "✓";
     position: absolute;
@@ -269,7 +268,6 @@ a {
     margin-top: 2rem;
 }
 
-
 .btn-confirm {
     background-color: #45694b;
     color: white;
@@ -277,15 +275,16 @@ a {
     padding: 0.8rem 1.8rem;
     border-radius: 55px;
     font-weight: 700;
-     font-size: 2rem;
+    font-size: 1.2rem;
     margin-left: 2rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .btn-cancel {
     background-color: #95b39a;
     color: white;
-    font-size: 2rem;
+    font-size: 1.2rem;
     border: 2px solid #6a9170;
     padding: 0.8rem 1.8rem;
     border-radius: 55px;
@@ -294,6 +293,7 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .btn-cancel {
     background-color: transparent;
     color: #666;
@@ -315,8 +315,7 @@ a {
     transform: translateY(-1px);
 }
 
-
-/* Footer */
+/* Footer (Rodapé) */
 footer {
     position: fixed;
     bottom: 0;
@@ -348,31 +347,31 @@ footer {
     color: #666;
 }
 
-/* Responsividade */
+/* ====== RESPONSIVIDADE ====== */
 @media (max-width: 768px) {
     .senha-container {
         padding: 1.5rem;
     }
-    
+
     .form-actions {
         flex-direction: column;
     }
-    
+
     .btn-cancel, .btn-confirm {
         width: 100%;
     }
-    
+
     nav {
         gap: 1.5rem;
         padding-right: 1rem;
     }
-    
+
     header .container {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
     }
-    
+
     .btn-entrar {
         order: 1;
     }
@@ -382,16 +381,16 @@ footer {
     .password-container {
         padding: 1.2rem;
     }
-    
+
     .password-title {
         font-size: 1rem;
         padding: 0.8rem;
     }
-    
+
     .container-box {
         padding: 1rem;
     }
-    
+
     .form-input {
         padding: 0.7rem;
     }
