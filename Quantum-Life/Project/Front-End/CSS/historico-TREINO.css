@@ -1,79 +1,105 @@
 /* ====== ESTILOS GERAIS ====== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Karla', sans-serif;
+    margin: 0; /* Remove todas as margens padrão dos elementos */
+    padding: 0; /* Remove todos os preenchimentos internos padrão */
+    box-sizing: border-box; /* Inclui padding e bordas dentro da largura e altura total dos elementos */
+    font-family: 'Karla', sans-serif; /* Define a fonte padrão como Karla com fallback sans-serif */
 }
 
 body {
-    background-color: #f5f5f5;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    background-color: white; /* Define o fundo da página como branco */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da tela */
+    display: flex; /* Usa layout flexível */
+    flex-direction: column; /* Organiza os elementos filhos em coluna */
 }
 
-/* ====== HEADER ====== */
+/* Header */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    display: flex; /* Usa layout flexível */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 1rem 0.1rem; /* Espaçamento interno superior/inferior de 1rem e lateral de 0.1rem */
+    background: white; /* Fundo branco */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25); /* Sombra com desfoque e transparência */
+    position: sticky; /* Fixa o header no topo ao rolar a página */
+    top: 0; /* Encosta no topo da página */
+    z-index: 999; /* Mantém o header acima dos outros elementos */
 }
 
 header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Espaça os elementos com o máximo possível entre eles */
+    align-items: center; /* Alinha verticalmente ao centro */
+    width: 100%; /* Ocupa 100% da largura */
+    max-width: 1200px; /* Limita a largura máxima */
+    padding: 0 1rem; /* Espaçamento lateral de 1rem */
 }
 
 header img {
-    max-width: 50px;
+    margin-left: 0; /* Sem margem à esquerda */
+    padding-left: 0px; /* Sem preenchimento à esquerda */
+    max-width: 50px; /* Largura máxima da imagem de 50px */
+}
+
+.image-bar {
+    cursor: pointer; /* Altera o cursor para mão ao passar o mouse */
 }
 
 nav {
-    display: flex;
-    gap: 2rem;
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0 auto;
+    display: flex; /* Layout flexível */
+    gap: 3rem; /* Espaço entre os itens do menu */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 700; /* Peso da fonte em negrito */
+    margin-left: auto; /* Empurra o menu para a direita */
+    margin-right: 1rem; /* Espaço à direita */
+    padding-right: 16%; /* Preenchimento à direita de 16% */
+    padding-left: 0%; /* Sem preenchimento à esquerda */
 }
 
-nav a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
+nav > * {
+    padding: 0.1rem 0.1rem; /* Preenchimento interno nos itens do menu */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Animação suave na cor de fundo */
 }
 
-nav a:hover {
-    color: #8FD6D9;
+nav > *:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Cursor em formato de mão */
+}
+
+.nav-bar {
+    cursor: pointer; /* Cursor em formato de mão */
+}
+
+a {
+    color: inherit; /* Herda a cor do texto pai */
+    text-decoration: none; /* Remove sublinhado dos links */
 }
 
 .btn-entrar {
-    background-color: #A5BEA9;
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    border-radius: 55px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #A5BEA9; /* Cor de fundo verde suave */
+    color: white; /* Cor do texto branca */
+    border: 2px solid #A5BEA9; /* Borda sólida da mesma cor do fundo */
+    outline: none; /* Remove contorno ao focar */
+    padding: 0.8rem 2.3rem; /* Preenchimento interno vertical/horizontal */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    border-radius: 55px; /* Bordas totalmente arredondadas */
+    font-size: 13px; /* Tamanho da fonte */
+    font-weight: 700; /* Texto em negrito */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Animações suaves */
 }
 
 .btn-entrar:hover {
-    background-color: #8FD6D9;
+    background-color: #ffffff; /* Muda o fundo para branco */
+    color: #A5BEA9; /* Muda a cor do texto */
+    border: 2px solid #A5BEA9; /* Borda permanece */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão */
 }
 /* ====== MAIN CONTENT ====== */
 .container-main {
     width: 100%;
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
@@ -81,10 +107,10 @@ nav a:hover {
 /* ====== CAIXA DE PESQUISA ====== */
 .search-box {
     background-color: #8FD6D9;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 auto 2rem 0;
+    margin: 0 auto 1rem 0;
     width: 300px;
 }
 
@@ -183,7 +209,8 @@ nav a:hover {
 .imc-history {
     background-color: #8FD6D940;
     padding: 3rem 2rem 2rem;
-    border-radius: 15px;
+    width: 100%;
+    border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     margin-top: 2rem;
@@ -194,10 +221,10 @@ nav a:hover {
 
 .imc-history h1 {
     color: #333;
-    font-size: 2.4rem;
+    font-size: 1.4rem;
     background-color: #8FD6D9;
     padding: 12px 40px;
-    border-radius: 100px;
+    border-radius: 50px;
     display: inline-block;
     box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
     position: absolute;
