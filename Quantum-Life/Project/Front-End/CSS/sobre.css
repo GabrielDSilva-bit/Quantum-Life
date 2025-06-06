@@ -101,12 +101,12 @@ text-decoration: none;
 padding: 40px;
 background: linear-gradient(270deg, #8FD6D9 0.25%, #4C7173 61.85%);
 width: 100%;
-height: 55rem;
+height: 45rem;
 }
 
 .about-container {
 display: flex;
-gap: 80px;
+gap: 150px;
 }
 
 .about-content,
@@ -116,7 +116,7 @@ max-width: 100%;
 }
 
 .back-about-title {
-width: 100%;
+width: 85%;
 max-width: 893px;
 height: 80px;
 border-radius: 100px;
@@ -126,17 +126,17 @@ margin-bottom: 70px;
 
 .about-title {
 color: #FFF;
-font-size: 70px;
+font-size: 52px;
 font-weight: 700;
 letter-spacing: 1.4px;
-margin-bottom: 69px;
-margin-left: 20px;
+margin-bottom: 67px;
+margin-left: 43px;
 }
 
 .about-description {
 width: 100%;
 max-width: 1000px;
-font-size: 40px;
+font-size: 30px;
 color: #FFF;
 line-height: 100%;
 letter-spacing: 1.35px;
@@ -187,11 +187,12 @@ p.email {
 .about-image {
 display: flex;
 justify-content: center;
+padding-left: 100px;
 }
 
 .desenhoTreino-icon {
 width: 100%;
-max-width: 720px;
+max-width: 550px;
 height: auto;
 border-radius: 50%;
 opacity: 0.6;
@@ -277,7 +278,8 @@ display: flex;
 align-items: center;
 }
 
-.feature-card {
+.feature-card,
+.feature-card-train {
 background-color: #b4d9b8;
 border-radius: 30px;
 width: 400px;
@@ -376,6 +378,17 @@ margin: 0 10px;
 }
 /*////////////MEDIA QUERIES//////////////*/
 @media (max-width: 1550px){
+  .about-section{
+    height: 40rem;
+  }
+  
+  .about-container{
+    gap: 50px;
+  }
+
+  .about-image{
+    padding-left: 200px;
+  }
   .about-title,
   .mission-title,
   .features-title,
@@ -384,26 +397,68 @@ margin: 0 10px;
   }
 
   .about-title {
-    padding-left: 80px;
     padding-top: 15px;
   }
+  
+  
+  .back-about-title{
+    width: 90%;
+  }
+  
   
   .about-description,
   .mission-description,
   .features-description,
   .value-description {
-    font-size: 30px;
+    font-size: 26px;
   }
 
+  .about-description{
+    letter-spacing: 0.35px;
+  }
+  
+  p.phone-number,
+  p.email {
+    font-size: 20px;
+  }
+  
   .desenhoTreino-icon{
     max-width: 450px;
     max-height: 450px;
   }
 
-  .about-section,
   .mission-section {
     width: 100%;
-    max-height: 800px;
+    max-height: 42rem;
+  }
+
+  .mission-container{
+    margin-top: 95px;
+    gap: 250px;
+  }
+
+  .team-image {
+    max-width: 430px;
+  }
+
+  .diet-text,
+  .train-text,
+  .calc-text {
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 137%;
+    margin-left: 33px;
+    max-width: 575px;
+  }
+
+  .feature-card{
+    width: 378px;
+    height: 103px;
+  }
+
+  .values-container{
+    margin-top: 37px;
+    padding-bottom: 55px;
   }
 }
 
