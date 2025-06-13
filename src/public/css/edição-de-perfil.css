@@ -1,0 +1,477 @@
+* {
+    margin: 0; /* Remove todas as margens padrão dos elementos */
+    padding: 0; /* Remove todos os preenchimentos internos padrão */
+    box-sizing: border-box; /* Inclui padding e bordas dentro da largura e altura total dos elementos */
+    font-family: 'Karla', sans-serif; /* Define a fonte padrão como Karla com fallback sans-serif */
+}
+
+body {
+    background-color: white; /* Define o fundo da página como branco */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da tela */
+    display: flex; /* Usa layout flexível */
+    flex-direction: column; /* Organiza os elementos filhos em coluna */
+}
+
+/* Header */
+header {
+    display: flex; /* Usa layout flexível */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 1rem 0.1rem; /* Espaçamento interno superior/inferior de 1rem e lateral de 0.1rem */
+    background: white; /* Fundo branco */
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25); /* Sombra com desfoque e transparência */
+    position: sticky; /* Fixa o header no topo ao rolar a página */
+    top: 0; /* Encosta no topo da página */
+    z-index: 999; /* Mantém o header acima dos outros elementos */
+}
+
+header .container {
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Espaça os elementos com o máximo possível entre eles */
+    align-items: center; /* Alinha verticalmente ao centro */
+    width: 100%; /* Ocupa 100% da largura */
+    max-width: 1200px; /* Limita a largura máxima */
+    padding: 0 1rem; /* Espaçamento lateral de 1rem */
+}
+
+header img {
+    margin-left: 0; /* Sem margem à esquerda */
+    padding-left: 0px; /* Sem preenchimento à esquerda */
+    max-width: 50px; /* Largura máxima da imagem de 50px */
+}
+
+.image-bar {
+    cursor: pointer; /* Altera o cursor para mão ao passar o mouse */
+}
+
+nav {
+    display: flex; /* Layout flexível */
+    gap: 3rem; /* Espaço entre os itens do menu */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 700; /* Peso da fonte em negrito */
+    margin-left: auto; /* Empurra o menu para a direita */
+    margin-right: 1rem; /* Espaço à direita */
+    padding-right: 16%; /* Preenchimento à direita de 16% */
+    padding-left: 0%; /* Sem preenchimento à esquerda */
+}
+
+nav > * {
+    padding: 0.1rem 0.1rem; /* Preenchimento interno nos itens do menu */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Animação suave na cor de fundo */
+}
+
+nav > *:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Cursor em formato de mão */
+}
+
+.nav-bar {
+    cursor: pointer; /* Cursor em formato de mão */
+}
+
+a {
+    color: inherit; /* Herda a cor do texto pai */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.btn-entrar {
+    background-color: #A5BEA9; /* Cor de fundo verde suave */
+    color: white; /* Cor do texto branca */
+    border: 2px solid #A5BEA9; /* Borda sólida da mesma cor do fundo */
+    outline: none; /* Remove contorno ao focar */
+    padding: 0.8rem 2.3rem; /* Preenchimento interno vertical/horizontal */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    border-radius: 55px; /* Bordas totalmente arredondadas */
+    font-size: 13px; /* Tamanho da fonte */
+    font-weight: 700; /* Texto em negrito */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Animações suaves */
+}
+
+.btn-entrar:hover {
+    background-color: #ffffff; /* Muda o fundo para branco */
+    color: #A5BEA9; /* Muda a cor do texto */
+    border: 2px solid #A5BEA9; /* Borda permanece */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão */
+}
+
+/* Container principal */
+.container-box {
+    background-color: #E8E8E8; /* Cor de fundo cinza claro */
+    width: 100%; /* Ocupa toda a largura */
+    min-height: 500px; /* Altura mínima de 700px */
+    border-radius: 15px; /* Bordas arredondadas */
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 2rem; /* Espaçamento interno */
+    flex: 1; /* Ocupa o espaço restante do container pai */
+}
+
+/* Conteúdo principal */
+main {
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza conteúdo */
+    align-items: center; /* Alinha verticalmente */
+    gap: 2rem; /* Espaço entre elementos filhos */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 2rem; /* Espaçamento interno */
+}
+
+/* Profile box */
+.profile {
+    width: 20rem; /* Largura fixa */
+    background: #B6C8B8; /* Cor de fundo verde claro */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 2rem 1rem; /* Espaçamento interno */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 550px; /* Altura fixa */
+    text-align: center; /* Texto centralizado */
+}
+
+.profile-container {
+    padding-top: 1%; /* Espaçamento superior */
+    padding-right: 4%; /* Espaçamento à direita */
+}
+
+/* Container da foto de perfil */
+.profile-picture-container {
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Em coluna */
+    align-items: center; /* Alinha ao centro horizontalmente */
+    margin-bottom: 1.5rem; /* Espaço inferior */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+/* Foto de perfil */
+.profile-picture {
+    position: relative; /* Necessário para posicionamento absoluto do ::after */
+    width: 250px; /* Largura fixa */
+    height: 250px; /* Altura fixa */
+    margin: 0 auto; /* Centraliza */
+    cursor: pointer; /* Cursor tipo mão */
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Círculo de fundo atrás da foto de perfil */
+.profile-picture::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: #D9D9D9; /* Altere essa cor para a que você quiser */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* Imagem da foto de perfil */
+.profile-picture img {
+    width: 150px; /* Largura da imagem */
+    height: 150px; /* Altura da imagem */
+    padding: 0; /* Sem padding */
+    border-radius: 50%; /* Imagem redonda */
+    object-fit: cover; /* Cobre a área sem distorcer */
+    border: 3px solid #b0b9a3; /* Borda verde clara */
+    transition: all 0.3s ease; /* Transição suave */
+    position: relative; /* Para sobrepor o ::after */
+}
+
+/* Texto "Mudar foto" que aparece ao passar o mouse */
+.profile-picture::after {
+    content: "Mudar foto"; /* Texto exibido */
+    position: absolute; /* Posicionado sobre a imagem */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    color: #2c3e50; /* Cor do texto */
+    border-radius: 100%; /* Formato redondo */
+    display: flex; /* Flex para centralizar texto */
+    justify-content: center;
+    align-items: center;
+    font-weight: 700; /* Negrito */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease; /* Suaviza a transição */
+    border: 3px solid #A5BEA9; /* Borda */
+    margin: auto; /* Centraliza */
+}
+
+.profile-picture:hover::after {
+    opacity: 1; /* Exibe o texto ao passar o mouse */
+}
+
+.profile-picture:hover img {
+    filter: brightness(0.4); /* Escurece um pouco a imagem */
+}
+
+/* Informações do perfil */
+.profile-info {
+    margin-top: 1rem; /* Espaçamento acima */
+}
+
+.profile-info span {
+    display: block; /* Quebra linha */
+    color: #000000; /* Cor preta */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    font-weight: 300; /* Peso leve */
+}
+
+.profile-info p {
+    font-weight: 700; /* Negrito */
+    font-size: 1rem; /* Tamanho maior */
+    margin-top: 0.5rem; /* Espaço acima */
+    color: #000000; /* Cor preta */
+}
+
+
+/* ===================== CONTAINER PRINCIPAL ===================== */
+/* Estiliza a área de dados da conta */
+.account-data {
+    width: 600px; /* Define a largura fixa do contêiner */
+    min-height: 600px; /* Define a altura mínima para evitar colapsos */
+    background: #B6C8B8; /* Cor de fundo em tom verde claro */
+    border-radius: 16px; /* Arredonda os cantos do contêiner */
+    padding: 2rem; /* Espaçamento interno (topo, direita, baixo, esquerda) */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    display: flex; /* Usa Flexbox para organizar os filhos */
+    flex-direction: column; /* Coloca os itens filhos em coluna (um abaixo do outro) */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* ===================== BOTÃO: DADOS ===================== */
+.btn-dados {
+    font-size: 1.3rem; /* Tamanho da fonte grande */
+    margin-bottom: 6.5rem; /* Espaço abaixo do botão */
+    color: #ffffff; /* Cor do texto branca */
+    font-weight: 700; /* Deixa o texto em negrito */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    padding: 0.8rem 1.5rem; /* Espaço interno (topo/baixo e laterais) */
+    background-color: #7F9D92; /* Cor de fundo verde acinzentado */
+    border-radius: 55px; /* Bordas bem arredondadas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve */
+    width: auto; /* Largura ajusta automaticamente ao conteúdo */
+    border: #7F9D92; /* Cor da borda igual à do fundo */
+    min-width: 30%; /* Largura mínima de 30% */
+}
+
+/* ===================== BOTÃO: SAIR ===================== */
+.btn-sair {
+    font-size: 1.3rem; /* Tamanho da fonte */
+    margin-bottom: 6.5rem; /* Espaço abaixo do botão */
+    color: #ffffff; /* Cor do texto */
+    font-weight: 700; /* Texto em negrito */
+    text-align: center; /* Alinhamento central */
+    padding: 0.8rem 1.5rem; /* Espaçamento interno */
+    background-color: #7F9D92; /* Cor de fundo */
+    border: #7F9D92; /* Borda da mesma cor */
+    border-radius: 55px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+    width: auto; /* Largura automática */
+    min-width: 50%; /* Largura mínima */
+}
+
+/* ===================== TÍTULO DENTRO DE account-data ===================== */
+.account-data h2 {
+    font-size: 1.3rem; /* Tamanho da fonte do título */
+    margin-bottom: 1.2rem; /* Espaço abaixo do título */
+    color: #ffffff; /* Cor do texto branca */
+    font-weight: 700; /* Negrito */
+    text-align: center; /* Centraliza o texto */
+    padding: 0.8rem; /* Espaçamento interno */
+    background-color: #4d7051; /* Fundo verde escuro */
+    border-radius: 20px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+    width: 40%; /* Largura relativa ao contêiner */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    min-height: none; /* Não define altura mínima (não afeta neste caso) */
+}
+
+/* ===================== VARIAÇÃO DE TÍTULO ===================== */
+.h2o {
+    margin-top: 70px; /* Espaço grande acima */
+    margin-bottom: 10px; /* Espaço pequeno abaixo */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    color: #ffffff; /* Cor branca no texto */
+    min-width: 60%; /* Largura mínima */
+}
+
+.h2o- {
+    min-width: 40%; /* Variação com largura menor */
+}
+
+/* ===================== BOTÕES REUTILIZÁVEIS ===================== */
+.btns, .btn {
+    width: 70%; /* Ocupa 80% da largura do pai */
+    padding: 1rem; /* Espaço interno */
+    margin: 10px auto; /* Espaço acima e abaixo + centralização */
+    background-color: #52796B; /* Cor de fundo verde musgo */
+    border-radius: 16px; /* Bordas arredondadas */
+    border: none; /* Sem borda */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    color: #ffffff; /* Texto branco */
+    font-weight: 700; /* Negrito */
+    cursor: pointer; /* Muda cursor ao passar o mouse */
+    transition: all 0.3s ease; /* Animação suave ao interagir */
+    display: block; /* Ocupa toda a linha */
+}
+
+/* ===================== EFEITO HOVER ===================== */
+.btn:hover, .btns:hover {
+    background-color: #c1ddd1; /* Fundo muda para tom claro */
+    color: #4d7051; /* Texto muda para verde escuro */
+    border: 1px solid #4d7051; /* Adiciona borda verde escura */
+}
+
+/* ===================== BOTÃO "SAIR" PERSONALIZADO ===================== */
+.btn-sair {
+    background-color: #00ff1e; /* Verde neon */
+    margin-top: 70px; /* Espaço acima */
+    margin-bottom: 5px; /* Espaço abaixo */
+    width: 20%; /* Largura reduzida */
+    padding: 0.8rem; /* Espaço interno menor */
+    font-size: 1rem; /* Fonte ligeiramente menor */
+    min-width: 130px; /* Mantém largura mínima */
+    cursor: pointer;
+}
+
+/* Hover do botão "sair" */
+.btn-sair:hover {
+    background-color: #c1ddd1; /* Muda fundo ao passar mouse */
+    color: #00ff1e; /* Muda a cor do texto */
+    border: 1px solid #4d7051; /* Adiciona borda */
+}
+
+/* Hover geral para qualquer botão dentro de .account-data */
+.account-data button:hover {
+    color: #ff0000; /* Texto vermelho */
+    background-color: #00ff37; /* Fundo verde claro */
+    border: 1px solid #4d7051; /* Borda verde escura */
+}
+
+/* Hover para botões específicos com base na ordem */
+.account-data button:nth-child(1):hover {
+    background-color: #7F9D92; /* Verde médio */
+}
+.account-data button:nth-child(2):hover {
+    background-color: #c1ddd1; /* Verde claro */
+}
+.account-data button:nth-child(3):hover {
+    background-color: #00ff91; /* Verde neon */
+}
+.account-data button:nth-child(4):hover {
+    background-color: #c1ddd1;
+}
+.account-data button:nth-child(5) {
+    margin-top: 70px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cores padrão dos botões por ordem */
+.account-data button:nth-child(2) {
+    background-color: #00ffa2;
+    color: #ffffff;
+}
+.account-data button:nth-child(3),
+.account-data button:nth-child(4) {
+    background-color: #52796B;
+    color: #ffffff;
+}
+.account-data button:nth-child(5) {
+    background-color: #8DAE91;
+    color: #ffffff;
+}
+
+/* ===================== RODAPÉ (FOOTER) ===================== */
+footer {
+  background: white;
+  padding: 1.8rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  box-shadow: 0px 4px 90px rgba(0, 0, 0, 0.25);
+  
+}
+
+.footer-text {
+  padding-top: 1%;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 40px;
+  margin: 0 10px;
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+
+/* Para telas menores que 1300px */
+@media (max-width: 1300px) {
+    main {
+        flex-direction: column; /* Empilha os elementos */
+        padding: 2rem;
+    }
+
+    .profile, .account-data {
+        width: 100%; /* Ocupa toda a largura */
+        max-width: 600px; /* Largura máxima */
+        margin-bottom: 2rem; /* Espaço inferior */
+    }
+
+    nav {
+        gap: 1.5rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column; /* Empilha os elementos */
+        gap: 1rem;
+    }
+
+    nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        margin: 1rem 0;
+        padding-right: 0;
+        gap: 1rem;
+    }
+
+    .btn-entrar {
+        order: 3;
+        margin: 1rem 0;
+    }
+
+    .profile, .account-data {
+        padding: 1.5rem;
+        height: auto;
+    }
+
+    .account-data h2,
+    .account-data button {
+        width: 90%; /* Ocupam quase toda a largura */
+    }
+}

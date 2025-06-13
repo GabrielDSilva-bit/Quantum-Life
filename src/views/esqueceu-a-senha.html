@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esqueceu a senha</title>
+    <link rel="stylesheet" href="../CSS/esqueceu-a-senha.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <a href="#" class="back-button">
+          <svg
+            class="back-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            s
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+          Voltar
+        </a>
+        <h1 class="title">REDEFINIÇÃO DE SENHA</h1>
+        <p class="subtitle">Informe o email da conta</p>
+        <form class="form" onsubmit="return mostrarCampoCodigo(event)">
+          <input
+            type="email"
+            id="nova-senha"
+            placeholder="EMAIL"
+            class="email"
+          />
+
+          <!-- Campo de código inicialmente escondido -->
+          <input
+            type="code"
+            id="confirmar-senha"
+            placeholder="CÓDIGO"
+            class="code"
+            style="display: none"
+          />
+          <button type="submit" class="confirm-button">CONFIRMAR</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let etapa = 1;
+
+      function mostrarCampoCodigo(event) {
+        event.preventDefault();
+
+        const emailInput = document.getElementById("nova-senha");
+        const codigoInput = document.getElementById("confirmar-senha");
+        const botao = document.querySelector(".confirm-button");
+
+        if (etapa === 1) {
+          if (emailInput.value.trim() === "") {
+            alert("Por favor, preencha o e-mail.");
+            return false;
+          }
+
+          // Mostrar campo do código
+          codigoInput.style.display = "block";
+
+          // Bloquear o campo de e-mail
+          emailInput.disabled = true;
+
+          // Alterar texto do botão
+          botao.textContent = "VALIDAR CÓDIGO";
+
+          etapa = 2;
+          return false;
+        }
+
+        if (etapa === 2) {
+          if (codigoInput.value.trim() === "") {
+            alert("Digite o código.");
+            return false;
+          }
+
+          alert("Código validado! Você pode prosseguir.");
+          // Aqui você pode redirecionar, se quiser:
+          // window.location.href = "nova-senha.html";
+        }
+
+        return false;
+      }
+    </script>
+  </body>
+</html>
