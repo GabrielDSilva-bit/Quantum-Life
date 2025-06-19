@@ -151,7 +151,7 @@ a {
 .search-input input:focus {
     border-color: rgb(125, 209, 191); /* Borda laranja quando selecionado */
     background-color: #8fdee0; /* Fundo branco */
-    box-shadow: 0 0 0 3px rgba(255, 60, 0, 0.2); /* Sombra laranja suave */
+    box-shadow: 0 0 0 3px rgb(125, 209, 191); /* Sombra laranja suave */
 }
 
 /* Estilo do botão de pesquisa como elemento independente */
