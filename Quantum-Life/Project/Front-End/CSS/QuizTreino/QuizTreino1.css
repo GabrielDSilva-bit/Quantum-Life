@@ -345,7 +345,7 @@ footer {
   .quiz-title-container {
     position: static;
     transform: none;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto rem auto;
     width: 240px;
     height: 55px;
   }
