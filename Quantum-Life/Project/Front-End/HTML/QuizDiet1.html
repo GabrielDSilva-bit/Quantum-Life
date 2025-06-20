@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz de Dieta - QuantumLife</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/QuizTreino1.css" />
+  </head>
+  <body>
+    <header>
+    <div class="container">
+      <a href="../HTML/home.html"><img class="image-bar" src="../IMG/quantumlife 2.png" alt="Logo" /></a>
+      <nav class="nav-bar">
+         <a href="../HTML/home.html">PÁGINA INICIAL</a>
+          <a href="../HTML/sobre.html">SOBRE</a>
+          <a href="../HTML/QuizDiet1.html">DIETA</a>
+          <a href="../HTML/QuizTreino1.html">TREINOS</a>
+          <a href="../HTML/calculo-imc.html">IMC</a>
+      </nav>     
+      <a href="../HTML/login-cadastro.html" class="btn-entrar">ENTRAR</a>
+    </div>
+  </header>
+    <main>
+      <div class="quiz-container">
+        <section class="quiz-content">
+          <div class="quiz-frame">
+            <div class="quiz-title-container">
+              <h1 class="quiz-title">Quiz de Dieta</h1>
+            </div>
+
+            <div class="progress-indicators">
+              <div class="progress-dots">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+              </div>
+            </div>
+
+            <h2 class="quiz-question">Carregando pergunta...</h2>
+            <div class="quiz-options"></div>
+
+            <div class="navigation-buttons">
+              <button id="prev-button" class="nav-button prev">
+                <svg
+                  width="54"
+                  height="54"
+                  viewBox="0 0 54 54"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="27"
+                    cy="27"
+                    r="27"
+                    transform="rotate(180 27 27)"
+                    fill="#699495"
+                  />
+                  <path
+                    d="M32 18L22 27L32 36"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button id="next-button" class="nav-button next">
+                <svg
+                  width="54"
+                  height="54"
+                  viewBox="0 0 54 54"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="27" cy="27" r="27" fill="#699495" />
+                  <path
+                    d="M22 18L32 27L22 36"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button
+                id="finish-button"
+                class="nav-button"
+                style="display: none"
+              >
+                Finalizar
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="social-icons">
+        <img src="../../IMG/google.png" alt="Social 1" />
+        <img src="../../IMG/Facebook.png" alt="Social 2" />
+        <img src="../../IMG/Linkedin.png" alt="Social 3" />
+      </div>
+      <div class="footer-text">
+        <p>© 2025 Feito Por Quantum Life.</p>
+      </div>
+    </footer>
+
+    <script src="../JavaScript/QuizDietaTreino.js"></script>
+  </body>
+</html>
