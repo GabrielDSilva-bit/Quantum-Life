@@ -121,8 +121,8 @@ a {
 /* ====== FORMULÁRIO DE SENHA ====== */
 .senha-container {
     background-color: #B6C8B8; /* Verde claro */
-    width: 70%; /* Largura total */
-    max-width: 1500px; /* Largura máxima */
+    width: 90%; /* Largura total */
+    max-width: 1000px; /* Largura máxima */
     padding: 2.5rem; /* Espaço interno */
     border-radius: 15px; /* Cantos arredondados */
     box-shadow: 
