@@ -122,10 +122,6 @@ a {
   border-radius: 100px;
   background: #60a38b;
   margin-bottom: 70px;
-
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
 }
 
 .about-title {
@@ -133,9 +129,9 @@ a {
   font-size: 52px;
   font-weight: 700;
   letter-spacing: 1.4px;
-  margin: 0; /* Remove margens que possam desalinhar o elemento */
+  margin-bottom: 67px;
+  margin-left: 43px;
 }
-
 
 .about-description {
   width: 100%;
