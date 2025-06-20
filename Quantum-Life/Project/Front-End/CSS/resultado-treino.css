@@ -55,23 +55,23 @@ header img {
   max-width: 50px;
 }
 
-.image-bar {
+.image-bar{
   cursor: pointer;
 }
 
 nav {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   font-size: 1rem;
   font-weight: 700;
   margin-left: auto;
   margin-right: 1rem;
-  padding-right: 12%;
+  padding-right: 16%;
   padding-left: 0%;
 }
 
 nav > * {
-  padding: 0.1rem 0.1rem;
+  padding: 0.1rem 0.1rem; 
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
@@ -81,15 +81,20 @@ nav > *:hover {
   cursor: pointer;
 }
 
-.nav-bar {
+.nav-bar{
   cursor: pointer;
+}
+
+a {
+  color: inherit; /* tira o estilo de link */
+  text-decoration: none;
 }
 
 /* Botão "Entrar" */
 .btn-entrar {
-  background-color: #a5bea9;
+  background-color: #A5BEA9;
   color: white;
-  border: 2px solid #a5bea9;
+  border: 2px solid #A5BEA9;
   outline: none;
   padding: 0.8rem 2.3rem;
   letter-spacing: 1px;
@@ -102,8 +107,8 @@ nav > *:hover {
 
 .btn-entrar:hover {
   background-color: #ffffff;
-  color: #a5bea9;
-  border: 2px solid #a5bea9;
+  color: #A5BEA9;
+  border: 2px solid #A5BEA9;
   transform: scale(1.05);
 }
 
@@ -289,6 +294,13 @@ nav > *:hover {
   font-style: normal;
   gap: 0.5em;
   padding: 3px 13px;
+  transition-delay:0.5s ease ;
+  cursor: pointer;
+}
+.btnVoltar:hover{
+  background: linear-gradient(90deg, #425c5c 0%, #5f4747 100%);
+  border: 1px solid #027fb9;
+  color: #000;
 }
 .btnImg {
   display: flex;
