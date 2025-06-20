@@ -312,8 +312,27 @@ main {
   min-width: 60%; /* Largura mínima */
 }
 
-.h2o- {
+.h2o {
   min-width: 40%; /* Variação com largura menor */
+  width: 70%; /* Ocupa 80% da largura do pai */
+  padding: 1rem; /* Espaço interno */
+  margin: 10px auto; /* Espaço acima e abaixo + centralização */
+  margin-top: 80px ;
+  background-color: #52796b; /* Cor de fundo verde musgo */
+  border-radius: 16px; /* Bordas arredondadas */
+  border: none; /* Sem borda */
+  text-align: center; /* Centraliza o texto */
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: #ffffff; /* Texto branco */
+  font-weight: 700; /* Negrito */
+  cursor: pointer; /* Muda cursor ao passar o mouse */
+  transition: all 0.3s ease; /* Animação suave ao interagir */
+  display: block; /* Ocupa toda a linha */
+}
+.h2o:hover {
+   background-color: #c1ddd1; /* Fundo muda para tom claro */
+  color: #4d7051; /* Texto muda para verde escuro */
+  border: 1px solid #4d7051; /* Adiciona borda verde escura */
 }
 
 /* ===================== BOTÕES REUTILIZÁVEIS ===================== */
