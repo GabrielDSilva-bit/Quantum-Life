@@ -39,13 +39,12 @@
 
               <div class="boxText">
                 <div class="textos">
-                  <h2>Força e Resistencia</h2>
+                  <!-- Este h2 será preenchido pelo JavaScript com o título do treino -->
+                  <h2 id="profileTitle"></h2>
                 </div>
                 <div class="textos">
-                  <p>Você treina para ganhar força muscular e resistência
-                    física.
-                    Seu treino deve incluir exercícios compostos e cargas
-                    progressivas para obter o máximo de ganhos.</p>
+                  <!-- Este p será preenchido pelo JavaScript com a descrição do treino -->
+                  <p id="profileDescription"></p>
                 </div>
               </div>
 
@@ -73,7 +72,8 @@
               <div class="name">
                 <h1>Sugestão de Treino</h1>
               </div>
-
+              <!-- Este bloco de sugestão de treino com imagens específicas pode permanecer estático,
+                   pois os detalhes do backend são mais textuais e se encaixam melhor na seção de Insights. -->
               <div class="background">
 
                 <div class="ballImg">
@@ -132,37 +132,9 @@
                   </div>
                 </div>
                 <div class="embed">
-
-                  <ul>
-                    <span>Perfil: Força e Resistência</span>
-                    <li>🔹 Foco no aumento da capacidade muscular e resistência
-                      física.</li>
-                    <li>🔹 Treinos com carga progressiva e alta
-                      intensidade.</li>
-                    <li>🔹 Mistura de musculação e cardio intenso para
-                      resistência muscular.</li>
-                  </ul>
-                  <ul>
-                    <span>⚡ Estratégia de Treino</span>
-                    <li> ✅ Força → Exercícios básicos como agachamento,
-                      levantamento
-                      terra e supino com cargas altas (4 a 8 repetições).</li>
-                    <li>✅ Resistência → Treinos com repetições moderadas a altas
-                      (12 a
-                      20 reps) e descanso curto.</li>
-                    <li>✅ Cardio Intenso → HIIT, corrida, remo para aumentar a
-                      capacidade cardiorrespiratória.</li>
-                  </ul>
-                  <ul>
-                    <span>🔄 Recuperação e Cuidados</span>
-                    <li> ✔ Sono de qualidade (7-9h)</li>
-                    <li> ✔ Alongamento e mobilidade</li>
-                    <li>✔ Dias de descanso ativo para evitar lesões</li>
-                  </ul>
-                  <ul>
-                    <li>💪 Ideal para quem busca força funcional e resistência
-                      para
-                      esportes e desafios físicos! 🚀</li>
+                  <!-- Este UL será preenchido pelo JavaScript com os detalhes do treino -->
+                  <ul id="profileDetails">
+                    <!-- Conteúdo estático removido. Será preenchido dinamicamente pelo resultadoTreino.js -->
                   </ul>
 
                   <div class="embedp">
@@ -203,58 +175,8 @@
   </footer> 
 
         </main>
-        <script>
-          (() => {
-      const state = {};
-
-      let context = null;
-      let nodesToDestroy = [];
-      let pendingUpdate = false;
-
-      function destroyAnyNodes() {
-        // destroy current view template refs before rendering again
-        nodesToDestroy.forEach((el) => el.remove());
-        nodesToDestroy = [];
-      }
-
-      // Function to update data bindings and loops
-      // call update() when you mutate state and need the updates to reflect
-      // in the dom
-      function update() {
-        if (pendingUpdate === true) {
-          return;
-        }
-        pendingUpdate = true;
-
-        document.querySelectorAll("[data-el='div-1']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-2']").forEach((el) => {
-          el.setAttribute("space", 41);
-        });
-
-        document.querySelectorAll("[data-el='div-3']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-4']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-5']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        destroyAnyNodes();
-
-        pendingUpdate = false;
-      }
-
-      // Update with initial state on first load
-      update();
-    })();
-        </script>
+        <!-- Inclua o script resultadoTreino.js aqui. Verifique o caminho correto para sua estrutura de pastas. -->
+        <script src="../JavaScript/resultadoTreino.js"></script>
       </body>
 
-    </html>
+    </html>

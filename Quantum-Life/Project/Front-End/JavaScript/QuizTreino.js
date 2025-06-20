@@ -186,28 +186,35 @@ function perguntaAnterior() {
 }
 
 function finalizarQuiz() {
-  if (respostas[perguntaAtual] === null) {
+  if (respostas[perguntaAtual] === undefined) {
     alert("Por favor, selecione uma opção para finalizar.");
     return;
   }
-  const contagem = [0, 0, 0, 0, 0];
-  respostas.forEach((resposta) => {
-    if (resposta !== null) contagem[resposta]++;
-  });
-  const maxContagem = Math.max(...contagem);
-  const perfilVencedor = contagem.indexOf(maxContagem);
-  const perfis = [
-    "LOW_CARB",
-    "MEDITERRANEA",
-    "EQUILIBRADA",
-    "BEM_ESTAR",
-    "VEGANA",
-  ];
-  const resultadoFinal = perfis[perfilVencedor];
-  localStorage.setItem("resultadoQuizDieta", resultadoFinal);
-  window.location.href = "resultado-dieta.html";
-}
 
+  // Enviar as respostas para o backend para gerar o plano com IA
+  fetch('http://localhost:3000/quiz/treino', { // <-- URL do seu backend
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answers: respostas } ), // Envia o array de respostas
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.plan) { // O backend agora retorna 'plan' em vez de 'profile'
+      // Armazena o plano gerado pela IA no localStorage
+      localStorage.setItem("generatedTreinoPlan", data.plan); // Salva o plano gerado
+      // Redireciona para a página de resultados
+      window.location.href = "resultado-treino.html";
+    } else {
+      alert("Erro ao gerar plano de treino: " + data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao enviar quiz de treino para IA:', error);
+    alert("Erro de conexão com o servidor ou geração de IA. Tente novamente.");
+  });
+}
 // Adiciona os eventos aos botões
 prevButton.addEventListener("click", perguntaAnterior);
 nextButton.addEventListener("click", proximaPergunta);

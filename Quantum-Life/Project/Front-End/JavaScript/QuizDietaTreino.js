@@ -185,26 +185,42 @@ function perguntaAnterior() {
   }
 }
 
+// ... (código anterior da sua função finalizarQuiz de dieta) ...
+
 function finalizarQuiz() {
-  if (respostas[perguntaAtual] === undefined) {
+  if (respostas[perguntaAtual] === null) { // ou undefined, dependendo de como você inicializa 'respostas'
     alert("Por favor, selecione uma opção para finalizar.");
     return;
   }
 
-  const contagem = [0, 0, 0, 0, 0];
-  respostas.forEach((resposta) => {
-    if (resposta !== undefined) contagem[resposta]++;
+  // Enviar as respostas para o backend para gerar o plano com IA
+  fetch('http://localhost:3000/quiz/dieta', { // <-- URL do seu backend
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answers: respostas } ), // Envia o array de respostas
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.plan) { // O backend agora retorna 'plan' em vez de 'profile'
+      // Armazena o plano gerado pela IA no localStorage
+      localStorage.setItem("generatedDietPlan", data.plan); // Salva o plano gerado
+      // Redireciona para a página de resultados
+      window.location.href = "resultado-dieta.html";
+    } else {
+      alert("Erro ao gerar plano de dieta: " + data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Erro ao enviar quiz de dieta para IA:', error);
+    alert("Erro de conexão com o servidor ou geração de IA. Tente novamente.");
   });
-
-  const maxContagem = Math.max(...contagem);
-  const perfilVencedor = contagem.indexOf(maxContagem);
-  const perfis = ["HIIT", "FORCA", "RESISTENCIA", "FUNCIONAL", "MENTE_CORPO"];
-  const resultadoFinal = perfis[perfilVencedor];
-
-  localStorage.setItem("resultadoQuiz", resultadoFinal);
-
-  window.location.href = "resultado-treino.html";
 }
+
+// ... (código posterior da sua função finalizarQuiz de dieta) ...
+
+
 
 prevButton.addEventListener("click", perguntaAnterior);
 nextButton.addEventListener("click", proximaPergunta);

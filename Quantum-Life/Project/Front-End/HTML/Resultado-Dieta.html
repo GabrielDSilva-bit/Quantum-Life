@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado do Treino</title>
+    <title>Resultado da Dieta</title>
     <link rel="stylesheet" href="../CSS/Resultado-Dieta.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap"
@@ -39,10 +39,12 @@
 
               <div class="boxText">
                 <div class="textos">
-                  <h2>Dieta low Carb</h2>
+                  <!-- Este h2 será preenchido pelo JavaScript com o título da dieta -->
+                  <h2 id="profileTitle"></h2>
                 </div>
                 <div class="textos">
-                  <p>Uma dieta "low carb" é aquela que limita o consumo de carboidratos como grãos, vegetais ricos em amido e frutas e prioriza a ingestão de alimentos ricos em proteínas e gorduras saudáveis. Em geral, esse tipo de dieta é usado para emagrecer.</p>
+                  <!-- Este p será preenchido pelo JavaScript com a descrição da dieta -->
+                  <p id="profileDescription"></p>
                 </div>
               </div>
 
@@ -71,6 +73,7 @@
                 <h1>Alimentos Recomendados</h1>
               </div>
               <p>
+                <!-- Este parágrafo pode permanecer estático se você quiser, ou ser removido se os detalhes do backend cobrirem isso. -->
                 A dieta low carb inclui alimentos como carnes, peixes, ovos, vegetais, nozes, sementes e laticínios.  Deve-se evitar alimentos com alto teor de carboidratos, como pães, massas e doces. 
             </p>
               
@@ -89,59 +92,9 @@
                   </div>
                 </div>
                 <div class="embed">
-
-                  <ul>
-                    <span>Plano alimentar low carb (7 dias)</span>
-                    <li>🥑 Segunda-feira</li>
-                      <li>✅ Café da manhã: Omelete com queijo e espinafre + café sem açúcar.</li>
-                    <li>✅ Almoço: Frango grelhado + salada de folhas + azeite + abacate</li>
-                    <li>✅ Lanche: Mix de castanhas (amêndoas, nozes, castanha-do-pará)</li>
-                    <li>✅ Jantar: Peixe assado com brócolis e couve refogada</li>
-                  </ul>
-
-                  <ul>
-                    <li> 🥓 Terça-feira</li>
-                     <li>✅ Café da manhã: Iogurte natural + chia + morangos</li>
-                     <li>✅ Almoço: Bife acebolado + purê de couve-flor + salada de pepino.</li>
-                     <li>✅ Lanche: Queijo e presunto enrolados</li>
-                     <li>✅ Jantar: Omelete de queijo, tomate e manjericão</li>
-                  </ul>
-
-                  <ul>
-                   
-                    <li> 🍗 Quarta-feira</li>
-                    <li> ✅ Café da manhã: Ovos mexidos com bacon + café com creme de leite</li>
-                    <li> ✅ Almoço: Peito de frango ao molho de mostarda + salada verde</li>
-                    <li> ✅ Lanche: Pasta de amendoim natural + coco ralado</li>
-                    <li> ✅ Jantar: Sopa de legumes com carne</li>
-                  </ul>
-                  <ul>
-                    <li>🐟 Quinta-feira</li>
-                    <li>✅ Café da manhã: Pão low carb + ovo + queijo + café preto</li>
-                    <li>✅ Almoço: Salmão grelhado + aspargos + azeite de oliva</li>
-                    <li>✅ Lanche: Abacate com limão e sal</li>
-                    <li>✅ Jantar: Hambúrguer caseiro (sem pão) com queijo e alface</li>
-                  </ul>
-                  <ul>
-                    <li>🥩 Sexta-feira</li>
-                    <li>✅ Café da manhã: Panqueca de coco com cream cheese</li>
-                    <li>✅ Almoço: Costela assada + couve refogada + salada</li>
-                    <li>✅ Lanche: Ovo cozido com azeite e sal</li>
-                    <li>✅ Jantar: Filé de tilápia grelhado + brócoli</li>
-                  </ul>
-                  <ul>
-                    <li>🥗 Sábado</li>
-                    <li>✅ Café da manhã: Café com óleo de coco + queijo</li>
-                    <li>✅ Almoço: Camarão ao alho e óleo + salada verde</li>
-                    <li>✅ Lanche: Mix de castanhas</li>
-                    <li>✅ Jantar: Frango assado + legumes assados</li>
-                  </ul>
-                  <ul>
-                    <li> 🍳 Domingo</li>
-                    <li>✅ Café da manhã: Omelete de queijo + café sem açúcar</li>
-                    <li>✅ Almoço: Pernil assado + vinagrete + folhas verdes</li>
-                    <li>✅ Lanche: Queijo cottage com canela</li>
-                    <li>✅ Jantar: Sopa de abóbora com carne moída.</li>
+                  <!-- Este UL será preenchido pelo JavaScript com os detalhes da dieta -->
+                  <ul id="profileDetails">
+                    <!-- Conteúdo estático removido. Será preenchido dinamicamente pelo resultadoDieta.js -->
                   </ul>
 
                   <div class="embedp">
@@ -183,58 +136,8 @@
   </footer> 
 
         </main>
-        <script>
-          (() => {
-      const state = {};
-
-      let context = null;
-      let nodesToDestroy = [];
-      let pendingUpdate = false;
-
-      function destroyAnyNodes() {
-        // destroy current view template refs before rendering again
-        nodesToDestroy.forEach((el) => el.remove());
-        nodesToDestroy = [];
-      }
-
-      // Function to update data bindings and loops
-      // call update() when you mutate state and need the updates to reflect
-      // in the dom
-      function update() {
-        if (pendingUpdate === true) {
-          return;
-        }
-        pendingUpdate = true;
-
-        document.querySelectorAll("[data-el='div-1']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-2']").forEach((el) => {
-          el.setAttribute("space", 41);
-        });
-
-        document.querySelectorAll("[data-el='div-3']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-4']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        document.querySelectorAll("[data-el='div-5']").forEach((el) => {
-          el.setAttribute("space", 0);
-        });
-
-        destroyAnyNodes();
-
-        pendingUpdate = false;
-      }
-
-      // Update with initial state on first load
-      update();
-    })();
-        </script>
+        <!-- Inclua o script resultadoDieta.js aqui. Verifique o caminho correto para sua estrutura de pastas. -->
+        <script src="../JavaScript/resultadoDieta.js"></script>
       </body>
 
     </html>
