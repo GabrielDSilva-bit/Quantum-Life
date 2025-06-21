@@ -340,17 +340,17 @@ app.post('/quiz/dieta', async (req, res) => {
             }
         });
 
-        const prompt = `Com base nas seguintes preferências de dieta do usuário, gere um plano alimentar detalhado para 7 dias. Inclua café da manhã, almoço, lanche e jantar para cada dia. O plano deve ser prático, saudável e alinhado com as preferências. Use um formato fácil de ler, com emojis e marcadores.
+        const prompt = `Com base nas seguintes preferências de dieta do usuário, gere um plano alimentar detalhado para 7 dias e com quantidades. Inclua café da manhã, almoço, lanche e jantar para cada dia. O plano deve ser prático, saudável e alinhado com as preferências. Use um formato fácil de ler, com emojis e marcadores.
         
         Preferências do usuário:\n${userPreferences}
         
         Formato de saída desejado (exemplo para um dia):
         Plano alimentar (7 dias)
         🥑 Segunda-feira
-        ✅ Café da manhã: [Sugestão]
-        ✅ Almoço: [Sugestão]
-        ✅ Lanche: [Sugestão]
-        ✅ Jantar: [Sugestão]
+        ✅ Café da manhã: Quantidade: [Quantidade] [Sugestão] 
+        ✅ Almoço: Quantidade: [Quantidade] [Sugestão] 
+        ✅ Lanche: Quantidade: [Quantidade] [Sugestão]
+        ✅ Jantar: Quantidade: [Quantidade] [Sugestão] 
         
         Gere o plano completo para os 7 dias.`;
 

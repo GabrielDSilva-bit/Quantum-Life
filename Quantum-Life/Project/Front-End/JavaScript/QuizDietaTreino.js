@@ -1,3 +1,4 @@
+// Array com as 10 perguntas de treino
 const perguntas = [
   {
     pergunta: "Qual é seu principal objetivo com o treino?",
@@ -102,7 +103,7 @@ const perguntas = [
 ];
 
 let perguntaAtual = 0;
-const respostas = new Array(perguntas.length);
+const respostas = new Array(perguntas.length).fill(null); // Inicializa com null para consistência
 
 const questionTextElement = document.querySelector(".quiz-question");
 const optionsContainer = document.querySelector(".quiz-options");
@@ -124,6 +125,7 @@ function mostrarPergunta() {
     opcaoElement.addEventListener("click", (e) => {
       e.preventDefault();
       respostas[perguntaAtual] = index;
+      // Remove a seleção de todas as opções e adiciona à selecionada
       document
         .querySelectorAll(".quiz-option")
         .forEach((o) => o.classList.remove("selected"));
@@ -137,7 +139,8 @@ function mostrarPergunta() {
     optionsContainer.appendChild(opcaoElement);
   });
 
-  if (respostas[perguntaAtual] !== undefined) {
+  // Mantém a opção selecionada se o usuário voltar
+  if (respostas[perguntaAtual] !== null) {
     optionsContainer.children[respostas[perguntaAtual]].classList.add(
       "selected"
     );
@@ -154,9 +157,7 @@ function atualizarProgresso() {
 }
 
 function atualizarBotoes() {
-  // A lógica de visibilidade do botão de voltar foi removida.
-  // Ele agora estará sempre visível. A função de clique cuidará da lógica.
-
+  // O botão de voltar estará sempre visível, mas só funciona se não for a primeira pergunta
   if (perguntaAtual === perguntas.length - 1) {
     nextButton.style.display = "none";
     finishButton.style.display = "block";
@@ -167,7 +168,7 @@ function atualizarBotoes() {
 }
 
 function proximaPergunta() {
-  if (respostas[perguntaAtual] === undefined) {
+  if (respostas[perguntaAtual] === null) {
     alert("Por favor, selecione uma opção para continuar.");
     return;
   }
@@ -178,23 +179,20 @@ function proximaPergunta() {
 }
 
 function perguntaAnterior() {
-  // Esta verificação IMPEDE que a função faça algo se estiver na primeira página (perguntaAtual = 0)
   if (perguntaAtual > 0) {
     perguntaAtual--;
     mostrarPergunta();
   }
 }
 
-// ... (código anterior da sua função finalizarQuiz de dieta) ...
-
 function finalizarQuiz() {
-  if (respostas[perguntaAtual] === null) { // ou undefined, dependendo de como você inicializa 'respostas'
+  if (respostas[perguntaAtual] === null) {
     alert("Por favor, selecione uma opção para finalizar.");
     return;
   }
 
   // Enviar as respostas para o backend para gerar o plano com IA
-  fetch('http://localhost:3000/quiz/dieta', { // <-- URL do seu backend
+  fetch('http://localhost:3000/quiz/treino', { // <-- URL CORRETA PARA O QUIZ DE TREINO
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -203,24 +201,20 @@ function finalizarQuiz() {
   })
   .then(response => response.json())
   .then(data => {
-    if (data.plan) { // O backend agora retorna 'plan' em vez de 'profile'
-      // Armazena o plano gerado pela IA no localStorage
-      localStorage.setItem("generatedDietPlan", data.plan); // Salva o plano gerado
-      // Redireciona para a página de resultados
-      window.location.href = "resultado-dieta.html";
+    if (data.plan) {
+      // Armazena o plano gerado pela IA no localStorage com a CHAVE CORRETA
+      localStorage.setItem("generatedTreinoPlan", data.plan);
+      // Redireciona para a página de resultados CORRETA
+      window.location.href = "resultado-treino.html";
     } else {
-      alert("Erro ao gerar plano de dieta: " + data.message);
+      alert("Erro ao gerar plano de treino: " + data.message);
     }
   })
   .catch(error => {
-    console.error('Erro ao enviar quiz de dieta para IA:', error);
+    console.error('Erro ao enviar quiz de treino para IA:', error);
     alert("Erro de conexão com o servidor ou geração de IA. Tente novamente.");
   });
 }
-
-// ... (código posterior da sua função finalizarQuiz de dieta) ...
-
-
 
 prevButton.addEventListener("click", perguntaAnterior);
 nextButton.addEventListener("click", proximaPergunta);

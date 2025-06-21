@@ -126,11 +126,17 @@ function mostrarPergunta() {
     opcaoElement.addEventListener("click", (e) => {
       e.preventDefault();
       respostas[perguntaAtual] = index;
-      mostrarPergunta();
+      // Remove a seleção de todas as opções e adiciona à selecionada
+      document
+        .querySelectorAll(".quiz-option")
+        .forEach((o) => o.classList.remove("selected"));
+      opcaoElement.classList.add("selected");
     });
 
-    if (respostas[perguntaAtual] === index) {
-      opcaoElement.classList.add("selected");
+    if (respostas[perguntaAtual] !== null) {
+      optionsContainer.children[respostas[perguntaAtual]].classList.add(
+        "selected"
+      );
     }
 
     opcaoElement.innerHTML = `
@@ -150,11 +156,7 @@ function atualizarProgresso() {
   });
 }
 
-// ----- FUNÇÃO ATUALIZADA -----
 function atualizarBotoes() {
-  // A lógica de esconder o botão 'prevButton' foi REMOVIDA.
-  // Ele agora ficará sempre visível.
-
   if (perguntaAtual === perguntas.length - 1) {
     nextButton.style.display = "none";
     finishButton.style.display = "block";
@@ -175,10 +177,7 @@ function proximaPergunta() {
   }
 }
 
-// ----- FUNÇÃO ATUALIZADA -----
 function perguntaAnterior() {
-  // Esta verificação garante que a função só execute
-  // se a pergunta atual NÃO for a primeira (índice 0).
   if (perguntaAtual > 0) {
     perguntaAtual--;
     mostrarPergunta();
@@ -186,13 +185,13 @@ function perguntaAnterior() {
 }
 
 function finalizarQuiz() {
-  if (respostas[perguntaAtual] === undefined) {
+  if (respostas[perguntaAtual] === null) {
     alert("Por favor, selecione uma opção para finalizar.");
     return;
   }
 
   // Enviar as respostas para o backend para gerar o plano com IA
-  fetch('http://localhost:3000/quiz/treino', { // <-- URL do seu backend
+  fetch('http://localhost:3000/quiz/dieta', { // <-- URL CORRETA PARA O QUIZ DE DIETA
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -201,24 +200,23 @@ function finalizarQuiz() {
   })
   .then(response => response.json())
   .then(data => {
-    if (data.plan) { // O backend agora retorna 'plan' em vez de 'profile'
-      // Armazena o plano gerado pela IA no localStorage
-      localStorage.setItem("generatedTreinoPlan", data.plan); // Salva o plano gerado
-      // Redireciona para a página de resultados
-      window.location.href = "resultado-treino.html";
+    if (data.plan) {
+      // Armazena o plano gerado pela IA no localStorage com a CHAVE CORRETA
+      localStorage.setItem("generatedDietPlan", data.plan);
+      // Redireciona para a página de resultados CORRETA
+      window.location.href = "resultado-dieta.html";
     } else {
-      alert("Erro ao gerar plano de treino: " + data.message);
+      alert("Erro ao gerar plano de dieta: " + data.message);
     }
   })
   .catch(error => {
-    console.error('Erro ao enviar quiz de treino para IA:', error);
+    console.error('Erro ao enviar quiz de dieta para IA:', error);
     alert("Erro de conexão com o servidor ou geração de IA. Tente novamente.");
   });
 }
-// Adiciona os eventos aos botões
+
 prevButton.addEventListener("click", perguntaAnterior);
 nextButton.addEventListener("click", proximaPergunta);
 finishButton.addEventListener("click", finalizarQuiz);
 
-// Inicia o quiz
 mostrarPergunta();
