@@ -90,21 +90,21 @@
     const searchInput = document.getElementById('search-input');
     const startDate = document.getElementById('start-date');
     const endDate = document.getElementById('end-date');
-    let currentTab = 'Dieta'; // aba ativa inicialmente
+    let currentTab = 'dieta'; // aba ativa inicialmente
 
     // Dados de exemplo definidos diretamente no código
     const data = {
       dieta: [
-        { data: '2025-02-10', inicio: '10/02/2025', fim: '20/03/2025', duracao: '4 semanas', dieta: 'Dieta Mediterrânea', foco: 'Queima de gordura, preserva músculo' },
-        { data: '2024-11-28', inicio: '28/11/2024', fim: '05/02/2025', duracao: '4 semanas', dieta: 'Dieta Cetogênica', foco: 'Perda rápida de gordura' }
+        { Inicio: '10/02/2025', Fim: '20/03/2025', Duracao: '4 semanas', Dieta: 'Dieta Mediterrânea', Foco: 'Queima de gordura, preserva músculo' },
+        { Inicio: '28/11/2024', Fim: '05/02/2025', Duracao: '4 semanas', Dieta: 'Dieta Cetogênica', Foco: 'Perda rápida de gordura' }
       ],
       imc: [
-        { data: '2025-02-10', imc: '22,6', classificacao: 'Peso Normal', variacao: '+6,26' },
-        { data: '2024-11-28', imc: '16.34', classificacao: 'Abaixo do Peso', variacao: '-11,46' }
+        { Data: '10/02/2025', Imc: '22,6', Classificação: 'Peso Normal', Variação: '+6,26' },
+        { Data: '28/11/2024', Imc: '16.34', Classificação: 'Abaixo do Peso', Variação: '-11,46' }
       ],
       treino: [
-        { data: '2025-01-12', tipo: 'Hipertrofia', musculo: 'Peito e tríceps', duracao: '1h15', intensidade: 'Alta' },
-        { data: '2025-01-13', tipo: 'Cardio', musculo: 'Corpo todo', duracao: '40 min', intensidade: 'Média' }
+        { Inicio: '12/01/2025', Fim: '15/06/2025', Tipo: 'Musculação', Duração: '1h15', intensidade: 'Alta' },
+        { Inicio: '13/01/2025', Fim: '16/06/2025', Tipo: 'Yoga', Duração: '40 min', intensidade: 'Média' }
       ]
     };
 
@@ -177,7 +177,8 @@
 
     // Alterna exibição do seletor de datas
     document.querySelector('.period-toggle').addEventListener('click', () => {
-      document.querySelector('.period-selector').classList.toggle('active');
+    const dropdown = document.querySelector('.period-dropdown');
+    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     });
 
     // Inicializa exibindo a aba padrão

@@ -361,7 +361,7 @@ a {
 
 /* ====== PERIOD SELECTOR ====== */
 .period-selector {
-    position: absolute;
+    position: relative;
     top: -80px;
     right: 20px;
     z-index: 20;
@@ -410,6 +410,7 @@ a {
 
 .period-dropdown {
     display: none;
+    position: absolute;
     background: rgb(241, 241, 241);
     border: 1px solid #ccc;
     border-radius: 10px;
