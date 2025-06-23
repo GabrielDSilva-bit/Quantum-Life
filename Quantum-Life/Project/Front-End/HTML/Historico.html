@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Life - Histórico</title>
+  <link rel="stylesheet" href="../CSS/historico.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../HTML/home.html"><img class="image-bar" src="../IMG/quantumlife 2.png" alt="Logo" /></a>
+      <nav class="nav-bar">
+        <a href="../HTML/home.html">PÁGINA INICIAL</a>
+        <a href="../HTML/sobre.html">SOBRE</a>
+        <a href="../HTML/QuizDiet1.html">DIETA</a>
+        <a href="../HTML/QuizTreino1.html">TREINOS</a>
+        <a href="../HTML/calculo-imc.html">IMC</a>
+      </nav>
+      <button class="btn-entrar">ENTRAR</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-main">
+      <div class="search-box">
+        <div class="search-container">
+          <div class="search-input">
+            <input type="text" id="search-input" placeholder="Digite sua pesquisa...">
+            <button class="search-button" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="search-options">
+            <a href="#" class="tab-btn" data-tab="dieta">Dieta</a>
+            <a href="#" class="tab-btn" data-tab="imc">IMC</a>
+            <a href="#" class="tab-btn" data-tab="treino">Treino</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="period-selector">
+        <button class="period-toggle"><i class="far fa-calendar-alt"></i> Selecionar Período</button>
+        <div class="period-dropdown">
+          <div class="date-range">
+            <div class="date-picker">
+              <label>De:</label>
+              <input type="date" id="start-date">
+            </div>
+            <div class="date-picker">
+              <label>Até:</label>
+              <input type="date" id="end-date">
+            </div>
+          </div>
+          <div class="period-actions">
+            <button class="btn-clear" id="btn-clear">Limpar</button>
+            <button class="btn-apply" id="btn-apply">Aplicar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="imc-history">
+        <div class="tab-content" id="tab-dieta"></div>
+        <div class="tab-content" id="tab-imc" style="display:none;"></div>
+        <div class="tab-content" id="tab-treino" style="display:none;"></div>
+
+        <div class="delete-btn-container">
+          <button class="delete-history-btn" id="btn-delete">Excluir Histórico</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <img src="../IMG/google.png" alt="Google">
+      <img src="../IMG/Facebook.png" alt="Facebook">
+      <img src="../IMG/Linkedin.png" alt="LinkedIn">
+    </div>
+    <div class="footer-text">
+      <p>© 2025 Feito Por Quantum Life.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Seleciona os botões de aba e conteúdos correspondentes
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    const searchInput = document.getElementById('search-input');
+    const startDate = document.getElementById('start-date');
+    const endDate = document.getElementById('end-date');
+    let currentTab = 'Dieta'; // aba ativa inicialmente
+
+    // Dados de exemplo definidos diretamente no código
+    const data = {
+      dieta: [
+        { data: '2025-02-10', inicio: '10/02/2025', fim: '20/03/2025', duracao: '4 semanas', dieta: 'Dieta Mediterrânea', foco: 'Queima de gordura, preserva músculo' },
+        { data: '2024-11-28', inicio: '28/11/2024', fim: '05/02/2025', duracao: '4 semanas', dieta: 'Dieta Cetogênica', foco: 'Perda rápida de gordura' }
+      ],
+      imc: [
+        { data: '2025-02-10', imc: '22,6', classificacao: 'Peso Normal', variacao: '+6,26' },
+        { data: '2024-11-28', imc: '16.34', classificacao: 'Abaixo do Peso', variacao: '-11,46' }
+      ],
+      treino: [
+        { data: '2025-01-12', tipo: 'Hipertrofia', musculo: 'Peito e tríceps', duracao: '1h15', intensidade: 'Alta' },
+        { data: '2025-01-13', tipo: 'Cardio', musculo: 'Corpo todo', duracao: '40 min', intensidade: 'Média' }
+      ]
+    };
+
+    // Função que exibe os dados na aba ativa
+    function render(tab) {
+      const container = document.getElementById(`tab-${tab}`);
+      container.innerHTML = '<h1>Histórico de ' + tab.toUpperCase() + '</h1>';
+
+      // Aplica filtros de data e busca por texto
+      const filtered = data[tab].filter(entry => {
+        const date = new Date(entry.data);
+        const start = startDate.value ? new Date(startDate.value) : null;
+        const end = endDate.value ? new Date(endDate.value) : null;
+        return (!start || date >= start) && (!end || date <= end);
+      }).filter(entry => {
+        return searchInput.value === '' || JSON.stringify(entry).toLowerCase().includes(searchInput.value.toLowerCase());
+      });
+
+      // Se nada encontrado, mostra mensagem
+      if (filtered.length === 0) {
+        container.innerHTML += '<div class="empty-state-text">Nenhum resultado encontrado.</div>';
+        return;
+      }
+
+      // Cria cabeçalho baseado nas chaves do objeto
+      const header = document.createElement('div');
+      header.className = 'history-header';
+      header.innerHTML = Object.keys(filtered[0]).map(k => `<h3>${k}</h3>`).join('');
+      container.appendChild(header);
+
+      // Cria cada item da lista
+      filtered.forEach(entry => {
+        const item = document.createElement('div');
+        item.classList.add('history-item');
+        item.innerHTML = Object.values(entry).map(v => `<div>${v}</div>`).join('');
+        container.appendChild(item);
+      });
+    }
+
+    // Alternância entre abas
+    tabs.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        contents.forEach(c => c.style.display = 'none');
+        document.getElementById(`tab-${btn.dataset.tab}`).style.display = 'block';
+        currentTab = btn.dataset.tab;
+        render(currentTab);
+      });
+    });
+
+    // Aplica os filtros
+    document.getElementById('btn-apply').addEventListener('click', () => render(currentTab));
+
+    // Limpa os filtros
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      startDate.value = endDate.value = searchInput.value = '';
+      render(currentTab);
+    });
+
+    // Executa busca por texto
+    document.getElementById('search-btn').addEventListener('click', () => render(currentTab));
+
+    // Remove todos os dados da aba atual (temporário em tempo de execução)
+    document.getElementById('btn-delete').addEventListener('click', () => {
+      if (confirm("Deseja realmente apagar o histórico de " + currentTab + "?")) {
+        data[currentTab] = [];
+        render(currentTab);
+      }
+    });
+
+    // Alterna exibição do seletor de datas
+    document.querySelector('.period-toggle').addEventListener('click', () => {
+      document.querySelector('.period-selector').classList.toggle('active');
+    });
+
+    // Inicializa exibindo a aba padrão
+    render(currentTab);
+  </script>
+</body>
+</html>
