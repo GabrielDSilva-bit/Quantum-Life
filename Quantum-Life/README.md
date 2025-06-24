@@ -11,7 +11,7 @@
 ## 1. Introdução
 
 ### 1.1 Objetivo
-O objetivo do **Quantum Life** é oferecer uma plataforma online de apoio à saúde e bem-estar, com foco em melhorar a forma física e a alimentação dos usuários. Através da integração com inteligência artificial (IA), o site fornecerá soluções personalizadas para dieta e treino, visando auxiliar os usuários na criação de rotinas equilibradas. O sistema incluirá funcionalidades como cálculo de IMC, geração de dietase treinos personalizados.
+O objetivo do **Quantum Life** é oferecer uma plataforma online de apoio à saúde e bem-estar, com foco em melhorar a forma física e a alimentação dos usuários. Através da integração com inteligência artificial (IA), o site fornecerá soluções personalizadas para dieta e treino, visando auxiliar os usuários na criação de rotinas equilibradas. O sistema incluirá funcionalidades como cálculo de IMC, geração de dietas e treinos personalizados.
 ### 1.2 Justificativa
 A obesidade e a falta de hábitos saudáveis têm se tornado um grande problema de saúde pública global, como evidenciado por estudos da OMS e do Ministério da Saúde. O **Quantum Life** visa combater essas questões proporcionando uma plataforma interativa e acessível para a adoção de hábitos saudáveis. Nosso site não apenas oferece recomendações de saúde física, mas também contribui para o bem-estar emocional, promovendo autoestima e motivação.
 
