@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap" );
 
+/* Reset básico e fontes */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +10,15 @@
 body {
   font-family: "Karla", sans-serif;
   background-color: #ffffff;
-  min-height: 100vh;
+  min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+  display: flex;
+  flex-direction: column; /* Para o footer ficar no final */
+}
+
+/* Estilos globais para links */
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /*////////////HEADER//////////////*/
@@ -35,9 +44,8 @@ header .container {
 }
 
 header img {
-  margin-left: 0;
-  padding-left: 0px;
   max-width: 50px;
+  height: auto; /* Garante proporção */
 }
 
 .image-bar {
@@ -46,17 +54,16 @@ header img {
 
 nav {
   display: flex;
-  gap: 3rem;
-  font-size: 1.1rem;
+  gap: 1.5rem; /* Reduzido para telas menores */
+  font-size: 0.9rem; /* Reduzido para telas menores */
   font-weight: 700;
   margin-left: auto;
-  margin-right: 1rem;
-  padding-right: 15%;
-  padding-left: 0%;
+  margin-right: 0.5rem; /* Reduzido para telas menores */
+  padding-right: 0; /* Removido padding fixo */
 }
 
 nav > * {
-  padding: 0.1rem 0.1rem;
+  padding: 0.1rem;
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
@@ -75,10 +82,10 @@ nav > *:hover {
   color: white;
   border: 2px solid #a5bea9;
   outline: none;
-  padding: 0.8rem 2.3rem;
+  padding: 0.6rem 1.5rem; /* Reduzido para telas menores */
   letter-spacing: 1px;
   border-radius: 55px;
-  font-size: 13px;
+  font-size: 0.8rem; /* Reduzido para telas menores */
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
@@ -91,248 +98,371 @@ nav > *:hover {
   transform: scale(1.05);
 }
 
-a {
-  color: inherit; /* tira o estilo de link */
-  text-decoration: none;
+/* Media query para telas maiores no header */
+@media (min-width: 768px) {
+  nav {
+    gap: 3rem;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    padding-right: 15%;
+  }
+  .btn-entrar {
+    padding: 0.8rem 2.3rem;
+    font-size: 13px;
+  }
 }
 
 /*////////////PRIMEIRA SESSÃO DO SOBRE//////////////*/
+.main-content {
+  flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+}
+
 .about-section {
-  padding: 40px;
+  padding: 2rem 1rem; /* Padding responsivo */
   background: linear-gradient(270deg, #8fd6d9 0.25%, #4c7173 61.85%);
-  width: 100%;
-  height: 45rem;
+  min-height: 40rem; /* Altura mínima, mas flexível */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-container {
   display: flex;
-  gap: 150px;
+  flex-direction: column; /* Empilha em telas pequenas */
+  gap: 2rem; /* Espaçamento responsivo */
+  max-width: 1200px;
+  width: 100%;
+  align-items: center; /* Centraliza itens empilhados */
 }
 
 .about-content,
 .about-image {
-  flex: 1 1 100%;
+  flex: 1 1 100%; /* Ocupa 100% da largura disponível */
   max-width: 100%;
 }
 
 .back-about-title {
-  width: 85%;
+  width: 100%; /* Ocupa toda a largura disponível */
   max-width: 893px;
-  height: 80px;
+  height: auto; /* Altura flexível */
+  min-height: 3rem; /* Altura mínima */
   border-radius: 100px;
   background: #60a38b;
-  margin-bottom: 70px;
+  margin-bottom: 1.5rem; /* Espaçamento responsivo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem; /* Padding interno */
 }
 
 .about-title {
   color: #fff;
-  font-size: 52px;
+  font-size: clamp(1.8rem, 5vw, 3.25rem); /* Tamanho fluido */
   font-weight: 700;
-  letter-spacing: 1.4px;
-  margin-bottom: 67px;
-  margin-left: 43px;
+  letter-spacing: 0.08rem;
+  text-align: center;
+  margin: 0; /* Removido margens fixas */
 }
 
 .about-description {
-  width: 100%;
-  max-width: 1000px;
-  font-size: 30px;
+  font-size: clamp(1rem, 3vw, 1.875rem); /* Tamanho fluido */
   color: #fff;
-  line-height: 100%;
-  letter-spacing: 1.35px;
-  margin-bottom: 60px;
-}
-
-.icons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  line-height: 1.4; /* Espaçamento entre linhas */
+  letter-spacing: 0.05rem;
+  margin-bottom: 2rem; /* Espaçamento responsivo */
+  text-align: center;
 }
 
 .contact-info {
   display: flex;
+  flex-direction: column; /* Empilha em telas pequenas */
   align-items: center;
-  gap: 20px;
+  gap: 1rem; /* Espaçamento responsivo */
   color: #fff;
-  font-size: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.5625rem); /* Tamanho fluido */
   font-weight: 700;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row; /* Ícones lado a lado */
+  gap: 1rem;
 }
 
 .contact-icon-telefone,
 .contact-icon {
-  width: auto;
-  max-width: 100%;
+  width: clamp(1.5rem, 4vw, 2.5rem); /* Tamanho fluido */
   height: auto;
 }
 
-.contact-icon-telefone {
-  height: 30px;
-  width: 50px;
+.contacts {
+  text-align: center;
 }
 
-.contact-icon {
-  height: 30px;
-  padding-left: 10px;
-  width: 50px;
-}
-p.phone-number {
-  margin-bottom: 20px;
-  font-size: 25px;
-}
-
-p.email {
-  font-size: 25px;
+.phone-number,
+.email {
+  margin-bottom: 0.5rem;
 }
 
 .about-image {
   display: flex;
   justify-content: center;
-  padding-left: 100px;
+  padding: 0; /* Removido padding fixo */
 }
 
 .desenhoTreino-icon {
   width: 100%;
-  max-width: 550px;
+  max-width: 300px; /* Limite para não ficar muito grande em telas pequenas */
   height: auto;
   border-radius: 50%;
   opacity: 0.6;
 }
 
+/* Media query para telas maiores na primeira seção */
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row; /* Lado a lado em telas maiores */
+    gap: 3rem;
+    align-items: flex-start;
+  }
+  .about-content {
+    text-align: left;
+  }
+  .back-about-title {
+    justify-content: flex-start;
+    padding-left: 2rem;
+  }
+  .about-description {
+    text-align: left;
+  }
+  .contact-info {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .icons {
+    flex-direction: column; /* Ícones empilhados ao lado do texto */
+  }
+  .desenhoTreino-icon {
+    max-width: 550px; /* Tamanho maior em telas grandes */
+    padding-left: 2rem;
+  }
+}
+
 /*////////////SEGUNDA SESSÃO DO SOBRE//////////////*/
 .mission-section {
-  padding: 40px;
-  width: 100%;
-  height: 55rem;
+  padding: 2rem 1rem;
+  min-height: 30rem; /* Altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mission-container {
   display: flex;
-  gap: 85px;
+  flex-direction: column; /* Empilha em telas pequenas */
+  gap: 2rem;
   align-items: center;
-  margin-top: 130px;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .mission-title {
-  font-size: 70px;
+  font-size: clamp(1.8rem, 5vw, 4.375rem); /* Tamanho fluido */
   color: #000;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .mission-description {
-  font-size: 45px;
+  font-size: clamp(1rem, 3vw, 2.8125rem); /* Tamanho fluido */
   color: #000;
+  text-align: center;
 }
 
 .team-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 300px; /* Limite para telas pequenas */
   height: auto;
   border-radius: 50%;
   object-fit: cover;
 }
 
+/* Media query para telas maiores na segunda seção */
+@media (min-width: 768px) {
+  .mission-container {
+    flex-direction: row; /* Lado a lado em telas maiores */
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+  .mission-title,
+  .mission-description {
+    text-align: left;
+  }
+  .team-image {
+    max-width: 500px; /* Tamanho maior em telas grandes */
+  }
+}
+
 /*////////////TERCEIRA SESSÃO DO SOBRE//////////////*/
 .features-section {
   background: linear-gradient(270deg, #8fd6d9 16.95%, #4c7173 64.54%);
-  padding: 80px 40px;
-  width: 100%;
+  padding: 3rem 1rem; /* Padding responsivo */
+  min-height: 40rem; /* Altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .features-container {
   display: flex;
-  gap: 60px;
+  flex-direction: column; /* Empilha em telas pequenas */
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
 }
 
 .coluna {
+  width: 100%;
+  text-align: center;
 }
 
 .features-title {
   color: #fff;
-  font-size: 48px;
+  font-size: clamp(1.8rem, 5vw, 3rem); /* Tamanho fluido */
   font-weight: 700;
   background-color: #60a38b;
   border-radius: 100px;
-  padding: 20px 40px;
-  margin-bottom: 80px;
-  width: 450px;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  width: fit-content; /* Ajusta a largura ao conteúdo */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features-description {
-  font-size: 45px;
+  font-size: clamp(1rem, 3vw, 2.8125rem); /* Tamanho fluido */
   color: #fff;
-  line-height: 115%;
-  width: 80%;
+  line-height: 1.4;
+  width: 100%;
+  max-width: 1000px; /* Limita a largura da descrição */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features-grid {
   display: flex;
-  flex-direction: column;
-  gap: 60px;
+  flex-direction: column; /* Empilha em telas pequenas */
+  gap: 2rem;
   width: 100%;
-  margin-left: 80px;
+  margin-left: 0; /* Removido margem fixa */
+  align-items: center;
 }
 
 .diet,
 .calc,
 .train {
   display: flex;
+  flex-direction: column; /* Empilha card e texto em telas pequenas */
   align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 500px; /* Limita a largura dos itens */
 }
 
-.feature-card,
-.feature-card-train {
+.feature-card {
   background-color: #b4d9b8;
   border-radius: 30px;
-  width: 400px;
-  height: 115px;
+  width: clamp(8rem, 25vw, 15rem); /* Tamanho fluido */
+  height: clamp(3rem, 10vw, 5rem); /* Altura fluida */
   border: 4px solid #525252;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem; /* Espaçamento entre card e texto */
 }
 
 .diet-icon,
 .calculator-icon,
 .train-icon {
-  width: auto;
-  max-width: 100%;
+  width: 80%; /* Ajusta o tamanho do ícone dentro do card */
   height: auto;
 }
 
 .diet-text,
 .calc-text,
 .train-text {
-  font-size: 28px;
+  font-size: clamp(0.9rem, 2.5vw, 1.75rem); /* Tamanho fluido */
   font-weight: 500;
-  line-height: 140%;
-  margin-left: 20px;
-  max-width: 575px;
+  line-height: 1.4;
+  margin-left: 0; /* Removido margem fixa */
+  max-width: 100%;
+}
+
+/* Media query para telas maiores na terceira seção */
+@media (min-width: 768px) {
+  .features-container {
+    flex-direction: row; /* Lado a lado em telas maiores */
+    gap: 3rem;
+    align-items: flex-start;
+  }
+  .coluna {
+    text-align: left;
+  }
+  .features-title {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .features-grid {
+    align-items: flex-start;
+  }
+  .diet,
+  .calc,
+  .train {
+    flex-direction: row; /* Card e texto lado a lado */
+    text-align: left;
+    max-width: none; /* Remove limite de largura */
+  }
+  .feature-card {
+    margin-right: 1.5rem; /* Espaçamento entre card e texto */
+    margin-bottom: 0;
+  }
+  .diet-text,
+  .calc-text,
+  .train-text {
+    margin-left: 0;
+  }
 }
 
 /*////////////QUARTA SESSÃO DO SOBRE//////////////*/
 .values-section {
-  padding: 20px 40px;
-  width: 100%;
+  padding: 2rem 1rem;
+  min-height: 30rem; /* Altura mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .values-container {
   max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 80px;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .values-title {
   color: #000;
-  font-size: 45px;
+  font-size: clamp(1.8rem, 5vw, 2.8125rem); /* Tamanho fluido */
   font-weight: 700;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 2rem;
 }
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 140px;
+  grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+  gap: 2rem; /* Espaçamento responsivo */
 }
 
 .value-card {
@@ -340,220 +470,53 @@ p.email {
 }
 
 .value-icon {
-  width: 79px;
-  height: 79px;
-  margin: 0 auto 20px;
+  width: clamp(3rem, 8vw, 5rem); /* Tamanho fluido */
+  height: auto;
+  margin: 0 auto 1rem;
 }
 
 .value-subtitle {
-  font-size: 48px;
+  font-size: clamp(1.2rem, 3.5vw, 3rem); /* Tamanho fluido */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .value-description {
-  font-size: 36px;
-  line-height: 110%;
+  font-size: clamp(0.9rem, 2.5vw, 2.25rem); /* Tamanho fluido */
+  line-height: 1.4;
+}
+
+/* Media query para telas maiores na quarta seção */
+@media (min-width: 768px) {
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 3 colunas em telas maiores */
+    gap: 3rem;
+  }
 }
 
 /*////////////FOOTER//////////////*/
 footer {
   background: white;
-  padding: 1rem;
+  padding: 1.5rem 1rem; /* Padding responsivo */
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Tamanho responsivo */
   font-style: italic;
   font-weight: 300;
-  box-shadow: 0px 4px 90px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1); /* Sombra ajustada */
+  margin-top: auto; /* Empurra o footer para o final */
 }
 
 .footer-text {
-  padding-top: 1%;
+  padding-top: 0.5rem;
 }
 
 .social-icons {
-  margin-top: 1rem;
+  margin-bottom: 1rem; /* Espaçamento responsivo */
   cursor: pointer;
 }
 
 .social-icons img {
-  width: 40px;
-  margin: 0 10px;
-}
-/*////////////MEDIA QUERIES//////////////*/
-@media (max-width: 1550px) {
-  .about-section {
-    height: 40rem;
-  }
-
-  .about-container {
-    gap: 50px;
-  }
-
-  .about-image {
-    padding-left: 200px;
-  }
-  .about-title,
-  .mission-title,
-  .features-title,
-  .values-title {
-    font-size: 40px;
-  }
-
-  .about-title {
-    padding-top: 15px;
-  }
-
-  .back-about-title {
-    width: 90%;
-  }
-
-  .about-description,
-  .mission-description,
-  .features-description,
-  .value-description {
-    font-size: 26px;
-  }
-
-  .about-description {
-    letter-spacing: 0.35px;
-  }
-
-  p.phone-number,
-  p.email {
-    font-size: 20px;
-  }
-
-  .desenhoTreino-icon {
-    max-width: 450px;
-    max-height: 450px;
-  }
-
-  .mission-section {
-    width: 100%;
-    max-height: 42rem;
-  }
-
-  .mission-container {
-    margin-top: 95px;
-    gap: 250px;
-  }
-
-  .team-image {
-    max-width: 430px;
-  }
-
-  .diet-text,
-  .train-text,
-  .calc-text {
-    font-size: 23px;
-    font-weight: 500;
-    line-height: 137%;
-    margin-left: 33px;
-    max-width: 575px;
-  }
-
-  .feature-card {
-    width: 378px;
-    height: 103px;
-  }
-
-  .values-container {
-    margin-top: 37px;
-    padding-bottom: 55px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .main-header {
-    padding: 0 20px;
-    flex-wrap: wrap;
-    height: auto;
-  }
-
-  .main-nav {
-    display: none;
-  }
-
-  .mobile-menu-icon {
-    display: block;
-  }
-
-  .login-button {
-    font-size: 24px;
-    padding: 10px 20px;
-  }
-
-  .logo {
-    width: 50px;
-    height: 45px;
-  }
-
-  .about-section,
-  .mission-section {
-    width: 100%;
-    max-height: 750px;
-  }
-
-  .desenhoTreino-icon {
-    max-width: 300px;
-    max-height: 300px;
-  }
-
-  .about-title,
-  .mission-title,
-  .features-title,
-  .values-title {
-    font-size: 24px;
-  }
-
-  .about-description,
-  .mission-description,
-  .features-description,
-  .value-description {
-    font-size: 18px;
-  }
-
-  .back-about-title {
-    height: 40px;
-  }
-  .value-subtitle {
-    font-size: 20px;
-  }
-  .diet-text,
-  .calc-text,
-  .train-text {
-    font-size: 16px;
-  }
-
-  .feature-card {
-    height: 75px;
-    width: 205px;
-  }
-
-  .team-image {
-    max-width: 300px;
-    max-width: 250px;
-  }
-}
-
-@media (max-width: 640px) {
-  .main-header {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .login-button {
-    font-size: 18px;
-    padding: 8px 16px;
-  }
-
-  .features-grid {
-    gap: 20px;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
+  width: clamp(1.8rem, 5vw, 2.5rem); /* Tamanho fluido */
+  height: auto;
+  margin: 0 0.5rem; /* Espaçamento responsivo */
 }
