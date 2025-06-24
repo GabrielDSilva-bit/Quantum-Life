@@ -55,8 +55,7 @@ Com essas informações, a IA do site fornecerá sugestões personalizadas.
 A plataforma será desenvolvida com foco na interação intuitiva e fácil utilização. As funcionalidades principais incluem:
 - **Cálculo do IMC**.
 - **Geração de dietas personalizadas**.
-- **Desenvolvimento de planos de treino**.
-- **Monitoramento e feedback**.
+- **Geração de treinos personalizados**.
 
 #### Ética e Privacidade
 O projeto respeitará as normas da Lei Geral de Proteção de Dados (LGPD), garantindo a segurança e privacidade dos dados dos usuários.
@@ -84,8 +83,8 @@ Vídeos, imagens e protótipos da plataforma serão fornecidos conforme o progre
 ### 5.1 Cadastro de Usuários
 O usuário deverá criar uma conta para acessar as funcionalidades do site. O cadastro também permitirá o armazenamento de dados para personalização das recomendações.
 
-### 5.2 Interação com IA
-O site contará com um chat onde os usuários poderão interagir com a IA, receber dicas e obter dietas e planos de treino personalizados. A IA também estará disponível para oferecer suporte contínuo.
+### 5.2 Integração com IA
+A inteligência artificial da OpenAI, com base nas respostas dos quizzes de treino e dieta, irá gerar planos personalizados para cada usuário, proporcionando uma experiência única e individualizada.
 
 ### 5.3 Cálculo de IMC
 O sistema calculará o IMC do usuário com base no peso e altura informados, fornecendo uma explicação sobre os resultados.
@@ -95,9 +94,6 @@ Com base nos objetivos e preferências alimentares do usuário, a IA gerará sug
 
 ### 5.5 Planos de Treino
 A IA gerará planos de treino adequados aos objetivos e características pessoais do usuário.
-
-### 5.6 Monitoramento de Progresso
-Os usuários poderão registrar e acompanhar seu progresso ao longo do tempo, com gráficos e indicadores de desempenho.
 
 ---
 
