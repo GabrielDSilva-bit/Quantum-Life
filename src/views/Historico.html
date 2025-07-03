@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Life - Histórico</title>
+  <link rel="stylesheet" href="/css/historico.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="/"><img class="image-bar" src="/img/quantumlife 2.png" alt="Logo" /></a>
+      <nav class="nav-bar">
+          <a href="/">PÁGINA INICIAL</a>
+          <a href="/sobre">SOBRE</a>
+          <a href="/quiz-dieta">DIETA</a>
+          <a href="/quiz-treino">TREINOS</a>
+          <a href="/imc">IMC</a>
+      </nav>
+      <!-- INÍCIO DA MODIFICAÇÃO: Adicione o container de login/perfil -->
+      <div id="login-container">
+        <a href="/login-cadastro" class="btn-entrar" id="btn-entrar">ENTRAR</a>
+       <a href="/perfil" id="profile-link" style="display:none; cursor:pointer;">
+          <img href="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Perfil" style="width:32px; height:32px; border-radius:50%;" />
+        </a>
+      </div>
+      <!-- FIM DA MODIFICAÇÃO -->
+    </div>
+  </header>
+
+  <main>
+    <div class="container-main">
+      <!-- Caixa de Pesquisa Atualizada -->
+      <div class="search-box">
+        <div class="search-container">
+          <div class="search-input">
+            <input type="text" id="search-input" placeholder="Digite sua pesquisa...">
+            <button class="search-button" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div class="search-options">
+            <a href="#" data-type="treino">Treino</a>
+            <a href="#" data-type="dieta">Dieta</a>
+            <a href="#" data-type="imc">IMC</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conteúdo do Histórico (será preenchido via JavaScript ) -->
+      <div id="history-content" class="imc-history">
+        <!-- O conteúdo será carregado aqui pelo JavaScript -->
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="social-icons">
+      <img src="img/google.png" alt="Google">
+      <img src="img/Facebook.png" alt="Facebook">
+      <img src="img/Linkedin.png" alt="LinkedIn">
+    </div>
+    <div class="footer-text">
+      <p>© 2025 Feito Por Quantum Life.</p>
+    </div>  
+  </footer>
+
+  <script src="js/Historico.js"></script>
+
+  <script>
+    // INÍCIO DA LÓGICA PARA O CABEÇALHO DINÂMICO
+    function isLoggedIn() {
+      const token = localStorage.getItem('token');
+      if (!token) return false;
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const now = Date.now() / 1000;
+        if (payload.exp && payload.exp < now) return false;
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function updateHeaderLoginStatus() {
+      const btnEntrar = document.getElementById('btn-entrar');
+      const profileLink = document.getElementById('profile-link');
+
+      if (isLoggedIn()) {
+        if (btnEntrar) {
+          btnEntrar.style.display = 'none';
+        }
+        if (profileLink) {
+          profileLink.style.display = 'inline';
+        }
+      } else {
+        if (btnEntrar) {
+          btnEntrar.style.display = 'inline';
+        }
+        if (profileLink) {
+          profileLink.style.display = 'none';
+        }
+      }
+    }
+
+    // Chamar a função quando o DOM estiver completamente carregado
+    window.addEventListener('DOMContentLoaded', updateHeaderLoginStatus);
+    // FIM DA LÓGICA PARA O CABEÇALHO DINÂMICO
+
+    // Lógica do botão de logout
+    document.getElementById('logoutButton').addEventListener('click', () => {
+        localStorage.removeItem('token');
+        window.location.href = '/login-cadastro';
+    });
+
+    // A lógica para o botão de "ENTRAR" no cabeçalho agora é tratada por updateHeaderLoginStatus
+    // e o href do profile-link já aponta para /perfil.
+    // Se você ainda tiver um botão com id="dynamic-auth-button" no HTML, ele não será mais necessário
+    // ou pode ser removido, pois o btn-entrar já tem id="btn-entrar".
+    // Removi o id="dynamic-auth-button" do botão ENTRAR no HTML acima para evitar duplicidade.
+  </script>
+
+</body>
+</html>

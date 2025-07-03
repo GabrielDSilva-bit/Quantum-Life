@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Caminho do CSS corrigido: de '../CSS/alterar-o-email.css' para '/css/alterar-o-email.css' -->
+  <link rel="stylesheet" type="text/css" href="/css/alterar-o-email.css" media="screen" />
+  <title>Quantum Life - Alterar Email</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <!-- Caminho da imagem do logo corrigido: de '../IMG/quantumlife 2.png' para '/img/quantumlife 2.png' -->
+      <a href="/"><img class="image-bar" src="/img/quantumlife 2.png" alt="Logo" /></a>
+      <nav class="nav-bar">
+          <!-- Caminhos das rotas corrigidos para as URLs do Express -->
+          <a href="/">PÁGINA INICIAL</a>
+          <a href="/sobre">SOBRE</a>
+          <a href="/quiz-dieta">DIETA</a>
+          <a href="/quiz-treino">TREINOS</a>
+          <a href="/imc">IMC</a>
+      </nav>
+      <div id="login-container">
+        <a href="/login-cadastro" class="btn-entrar" id="btn-entrar">ENTRAR</a>
+       <a href="/perfil" id="profile-link" style="display:none; cursor:pointer;">
+          <!-- Caminho da imagem de perfil corrigido e atributo href inválido removido -->
+          <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Perfil" style="width:32px; height:32px; border-radius:50%;" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-box">
+      <div class="email-container">
+        <div class="email-content">
+          <h1 class="email-title">ALTERAR E-MAIL</h1>
+          
+          <!-- Adicionado id ao formulário -->
+          <form class="email-form" id="changeEmailForm">
+            <div class="form-group">
+              <label for="new-email" class="form-label">Novo e-mail</label>
+              <input type="email" id="new-email" class="form-input" placeholder="Digite seu novo e-mail" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirm-email" class="form-label">Confirmar e-mail</label>
+              <input type="email" id="confirm-email" class="form-input" placeholder="Confirme seu novo e-mail" required>
+            </div>
+            
+            <div class="form-actions">
+              <!-- Caminho do botão CANCELAR corrigido: de '../HTML/Edição-de-perfil.html' para '/perfil' -->
+              <a href="/perfil" class="btn-cancel"> CANCELAR </a>
+              <button type="submit" class="btn-confirm">CONFIRMAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <!-- Caminhos das imagens corrigidos: de '../IMG/' para '/img/' -->
+      <img src="/img/google.png" alt="Google" class="social-icon">
+      <img src="/img/Facebook.png" alt="Facebook" class="social-icon">
+      <img src="/img/Linkedin.png" alt="LinkedIn" class="social-icon">
+    </div>
+    <div class="footer-text">
+      <p>© 2025 Feito Por Quantum Life.</p>
+    </div>  
+  </footer>
+
+  <!-- NOVO SCRIPT: Adicione este script para a lógica da página -->
+  <script src="/js/alterar-email.js"></script>
+  <!-- Lógica do cabeçalho dinâmico (copiada do Edicao-de-perfil.html ) -->
+  <script>
+    function isLoggedIn() {
+      const token = localStorage.getItem('token');
+      if (!token) return false;
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const now = Date.now() / 1000;
+        if (payload.exp && payload.exp < now) return false;
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function updateHeaderLoginStatus() {
+      const btnEntrar = document.getElementById('btn-entrar');
+      const profileLink = document.getElementById('profile-link');
+
+      if (isLoggedIn()) {
+        if (btnEntrar) {
+          btnEntrar.style.display = 'none';
+        }
+        if (profileLink) {
+          profileLink.style.display = 'inline';
+        }
+      } else {
+        if (btnEntrar) {
+          btnEntrar.style.display = 'inline';
+        }
+        if (profileLink) {
+          profileLink.style.display = 'none';
+        }
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', updateHeaderLoginStatus);
+  </script>
+</body>
+</html>

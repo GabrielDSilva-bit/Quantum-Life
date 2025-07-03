@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz de Treino - QuantumLife</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/QuizTreino1.css" />
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="/"
+          ><img class="image-bar" src="/IMG/quantumlife 2.png" alt="Logo"
+        /></a>
+        <nav class="nav-bar">
+          <a href="/">PÁGINA INICIAL</a>
+          <a href="/sobre">SOBRE</a>
+          <a href="/quiz-dieta">DIETA</a>
+          <a href="/quiz-treino">TREINOS</a>
+          <a href="/imc">IMC</a>
+        </nav>
+        <div id="login-container">
+          <a href="/login-cadastro" class="btn-entrar" id="btn-entrar"
+            >ENTRAR</a
+          >
+          <a
+            href="/perfil"
+            id="profile-link"
+            style="display: none; cursor: pointer"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+              alt="Perfil"
+              style="width: 32px; height: 32px; border-radius: 50%"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      function isLoggedIn() {
+        const token = localStorage.getItem("token");
+        if (!token) return false;
+        try {
+          const payload = JSON.parse(atob(token.split(".")[1]));
+          const now = Date.now() / 1000;
+          // Verifica se o token expirou (payload.exp é opcional no JWT, mas boa prática)
+          if (payload.exp && payload.exp < now) return false;
+          return true;
+        } catch {
+          return false; // Erro ao decodificar ou parsear o token
+        }
+      }
+
+      // Função para atualizar o cabeçalho (botão/ícone)
+      function updateHeaderLoginStatus() {
+        const btnEntrar = document.getElementById("btn-entrar"); // Seleciona pelo ID agora
+        const profileLink = document.getElementById("profile-link");
+
+        if (isLoggedIn()) {
+          if (btnEntrar) {
+            // Garante que o botão existe
+            btnEntrar.style.display = "none"; // Esconde o botão Entrar
+          }
+          if (profileLink) {
+            // Garante que o link do perfil existe
+            profileLink.style.display = "inline"; // Mostra o ícone de perfil
+          }
+        } else {
+          if (btnEntrar) {
+            btnEntrar.style.display = "inline"; // Mostra o botão Entrar
+          }
+          if (profileLink) {
+            profileLink.style.display = "none"; // Esconde o ícone de perfil
+          }
+        }
+      }
+
+      // Chamar a função quando o DOM estiver completamente carregado
+      window.addEventListener("DOMContentLoaded", updateHeaderLoginStatus);
+    </script>
+
+    <main>
+      <div class="quiz-container">
+        <section class="quiz-content">
+          <div id="loadingOverlay" class="loading-hidden">
+            <div class="spinner-container">
+              <img
+                src="/img/1494.gif"
+                alt="Carregando..."
+                class="spinner-icon"
+              />
+              <p>Gerando seu plano de treino...</p>
+              <p>Isso pode levar alguns segundos.</p>
+            </div>
+          </div>
+          <div class="quiz-frame">
+            <div class="quiz-title-container">
+              <h1 class="quiz-title">Quiz de Treino</h1>
+            </div>
+
+            <div class="progress-indicators">
+              <div class="progress-dots">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+              </div>
+            </div>
+
+            <h2 class="quiz-question">Carregando pergunta...</h2>
+
+            <div class="quiz-options"></div>
+
+            <div class="navigation-buttons">
+              <button id="prev-button" class="nav-button prev">
+                <svg
+                  width="54"
+                  height="54"
+                  viewBox="0 0 54 54"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="27"
+                    cy="27"
+                    r="27"
+                    transform="rotate(180 27 27 )"
+                    fill="#699495"
+                  />
+                  <path
+                    d="M32 18L22 27L32 36"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button id="next-button" class="nav-button next">
+                <svg
+                  width="54"
+                  height="54"
+                  viewBox="0 0 54 54"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="27" cy="27" r="27" fill="#699495" />
+                  <path
+                    d="M22 18L32 27L22 36"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button
+                id="finish-button"
+                class="nav-button"
+                style="display: none"
+              >
+                Finalizar
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <img src="/IMG/google.png" alt="Social 1" />
+        <img src="/IMG/Facebook.png" alt="Social 2" />
+        <img src="/IMG/Linkedin.png" alt="Social 3" />
+      </div>
+      <div class="footer-text">
+        <p>© 2025 Feito Por Quantum Life.</p>
+      </div>
+    </footer>
+
+    <script src="/js/QuizTreino.js"></script>
+  </body>
+</html>

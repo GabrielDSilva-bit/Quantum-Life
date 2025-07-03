@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+#generatedDate {
+  font-size: 1.2em; /* Ajuste este valor conforme o desejado (ex: 1.5em, 20px, large) */
+  font-weight: bold; /* Opcional: para deixar a data em negrito */
+  color: #000000; /* Opcional: para mudar a cor do texto */
+  margin-top: 10px; /* Opcional: para adicionar um espaçamento acima */
+  margin-bottom: 20px; /* Opcional: para adicionar um espaçamento abaixo */
+  text-align: center; /* Opcional: para centralizar o texto */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-height: 3.5em;
+  /* aqui! */
+  --font-size-text: 25px;
+  --bg-222: #ffffff;
+  --bg-333: #333;
+  --bg-444: #85c7c9;
+}
+
+nav,
+.linksNav,
+.perfilDeTreino,
+.tabelaTexto,
+.boxText {
+  display: flex;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.1rem;
+  background: white;
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+header img {
+  margin-left: 0;
+  padding-left: 0px;
+  max-width: 50px;
+}
+
+.image-bar{
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: 1rem;
+  padding-right: 16%;
+  padding-left: 0%;
+}
+
+nav > * {
+  padding: 0.1rem 0.1rem; 
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+nav > *:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.nav-bar{
+  cursor: pointer;
+}
+
+a {
+  color: inherit; /* tira o estilo de link */
+  text-decoration: none;
+}
+
+/* Botão "Entrar" */
+.btn-entrar {
+  background-color: #A5BEA9;
+  color: white;
+  border: 2px solid #A5BEA9;
+  outline: none;
+  padding: 0.8rem 2.3rem;
+  letter-spacing: 1px;
+  border-radius: 55px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-entrar:hover {
+  background-color: #ffffff;
+  color: #A5BEA9;
+  border: 2px solid #A5BEA9;
+  transform: scale(1.05);
+}
+
+.perfilDeTreino {
+  width: 100%;
+  height: calc(50.5em - 8em);
+  background-color: #b0c0c0;
+}
+
+.perfilDeTreino:nth-child(1) {
+  background-color: var(--bg-444);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding: 6em;
+}
+
+.tabelaTexto {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 3em;
+  /* mexe */
+  gap: 4em;
+}
+
+.tabelaTexto2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 3em;
+  gap: 3em;
+  font-size: 1.7em;
+}
+
+
+.name {
+  /* mexe aqui */
+  width: fit-content;
+  padding: 0.5em 1.5em;
+  white-space: nowrap;
+  border-radius: 55px;
+  background: linear-gradient(90deg, #6c9a9b 0%, #a2bba7 100%);
+  font-size: calc(var(--font-size-text) * 1);
+  color: white;
+}
+
+
+.perfilDeTreino:nth-child(2) .name {
+  background: linear-gradient(90deg, #546262 0%, #7d7070 100%);
+}
+
+
+.boxText {
+  flex-direction: column;
+  font-weight: 300;
+  color: black;
+  background-color: var(--bg-444);
+  /* mexe */
+  gap: 3em;
+}
+
+.textos {
+  margin-left: 3m;
+  font-size: 1.5em;
+}
+
+.textos h2 {
+  font-weight: 600;
+  font-size: calc(var(--font-size-text) * 1.5);
+}
+
+
+
+.imagemBackground,
+.imagemBackgroundLeft {
+  overflow: hidden;
+  width: 200em;
+  height: 100%;
+  mask-image: linear-gradient(to left, black 0%, transparent 100%);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.imagemBackgroundLeft {
+  mask-image: linear-gradient(to right, black 0%, transparent 100%);
+}
+
+.sugestao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  color: #fff;
+}
+
+.borderImg {
+  left: 1em;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgBall {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.sugestao img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* uma gambiarra n faz mal a ninguém! */
+
+.background {
+  padding: 0.5em;
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.background p {
+  position: relative;
+  margin: 0 0 0.2em 0.4em;
+  background-color: #4c7274;
+  border-radius: 0 20px 20px 0;
+  padding: 0.2em 0.4em;
+}
+
+.ball {
+  position: absolute;
+  display: flex;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #4c7274;
+  transform: translate(-5%, -15%);
+}
+
+.background img {
+  position: relative;
+  left: 0.2em;
+  width: 50px;
+  height: 50px;
+}
+
+.insights {
+  font-size: 1.7em;
+}
+
+.insights li {
+  list-style: none;
+}
+
+.insights span {
+  margin-left: 1em;
+
+  margin-left: 1em;
+}
+
+.embed {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #a2bba7;
+  border-radius: 2%;
+  padding: 0.5em 0.8em;
+  gap: 1.3em;
+}
+
+.embedp {
+  display: flex;
+  justify-content: center;
+}
+
+.divBtnQuiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnVoltar {
+  border-radius: 50px;
+  display: flex;
+  background: linear-gradient(90deg, #546262 0%, #7d7070 100%);
+  font-style: normal;
+  gap: 0.5em;
+  padding: 3px 13px;
+  transition-delay:0.5s ease ;
+  cursor: pointer;
+}
+.btnVoltar:hover{
+  background: linear-gradient(90deg, #425c5c 0%, #5f4747 100%);
+  border: 1px solid #027fb9;
+  color: #000;
+}
+.btnImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnImg img {
+  width: 2.3em;
+  height: 2.3em;
+}
+.retakeQuizButton {
+  font-size: 2em;
+  font-weight: 500;
+  color: #fff;
+  background: none;
+  border: none;
+  
+}
+footer {
+  background: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  box-shadow: 0px 4px 90px rgba(0, 0, 0, 0.25);
+}
+
+.footer-text {
+  padding-top: 1%;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.social-icons img {
+  width: 40px;
+  margin: 0 10px;
+}

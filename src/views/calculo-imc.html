@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de IMC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/tabler-icons.min.css" />
+  <link rel="stylesheet" href="../CSS/calculo-imc.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="../HTML/home.html"><img class="image-bar" src="../IMG/quantumlife 2.png" alt="Logo" /></a>
+      <nav class="nav-bar">
+        <a href="/">PÁGINA INICIAL</a>
+        <a href="/sobre">SOBRE</a>
+        <a href="/quiz-dieta">DIETA</a>
+        <a href="/quiz-treino">TREINOS</a>
+        <a href="/imc">IMC</a>
+      </nav>
+      <div id="login-container">
+        <a href="/login-cadastro" class="btn-entrar" id="btn-entrar">ENTRAR</a>
+        <a href="/perfil" id="profile-link" style="display:none; cursor:pointer;">
+          <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Perfil" style="width:32px; height:32px; border-radius:50%;" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    function isLoggedIn() {
+      const token = localStorage.getItem('token');
+      if (!token) return false;
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const now = Date.now() / 1000;
+        if (payload.exp && payload.exp < now) return false;
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function updateHeaderLoginStatus() {
+      const btnEntrar = document.getElementById('btn-entrar');
+      const profileLink = document.getElementById('profile-link');
+
+      if (isLoggedIn()) {
+        btnEntrar.style.display = 'none';
+        profileLink.style.display = 'inline';
+      } else {
+        btnEntrar.style.display = 'inline';
+        profileLink.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', updateHeaderLoginStatus);
+    window.addEventListener('storage', updateHeaderLoginStatus);
+  </script>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-flex-container">
+        <div class="hero-text-container">
+          <h1 class="hero-title">O que é IMC ?</h1>
+          <p class="hero-description">O IMC é reconhecido como padrão internacional para avaliar o grau de sobrepeso e obesidade.</p>
+          <p class="hero-formula">IMC = Peso ÷ (Altura × Altura)</p>
+          <p class="hero-example-title">Exemplo de como calcular o IMC:</p>
+          <p class="hero-example">IMC = 65 kg ÷ (1,75 m × 1,75 m) = 21,22 kg/m² (Normal)</p>
+          <p class="hero-cta">Utilize a calculadora abaixo para fazer o seu cálculo:</p>
+        </div>
+        <div class="image-calculadora">
+          <img class="image-calculadora" src="../IMG/image 15.png" alt="Calculadora de IMC" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="calculator-title">Calculadora de IMC</div>
+
+  <section class="calculator-section">
+    <div class="calculator-container">
+      <form>
+        <div class="calculator-grid">
+          <div class="calculator-column">
+            <div class="selection-container">
+              <div class="selection-title">Selecione:</div>
+              <div class="selection-options">
+                <div class="option">
+                  <input type="radio" name="faixa_etaria" id="adulto" value="adulto" checked>
+                  <label for="adulto" class="option-label">Adulto</label>
+                </div>
+                <div class="option">
+                  <input type="radio" name="faixa_etaria" id="crianca" value="crianca">
+                  <label for="crianca" class="option-label">Criança</label>
+                </div>
+              </div>
+              <div class="selection-note">Acima de 19 anos</div>
+            </div>
+
+            <div class="imc-inputs">
+              <div class="input-title">IMC</div>
+              <div class="input-group">
+                <div class="input-container">
+                  <input type="number" step="0.01" min="0.5" placeholder="Altura (m)" class="imc-input" name="altura" oninput="limitDigits(this, 3)">
+                </div>
+                <div class="input-container">
+                  <input type="number" step="0.1" min="1" max="599" placeholder="Peso (kg)" class="imc-input" name="peso" oninput="limitDigits(this, 3)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator-column">
+            <div class="gender-selection">
+              <div class="gender-title">Sexo:</div>
+              <div class="gender-options">
+                <div class="option">
+                  <input type="radio" name="sexo" id="masculino" value="masculino">
+                  <label for="masculino" class="option-label">Masculino</label>
+                </div>
+                <div class="option">
+                  <input type="radio" name="sexo" id="feminino" value="feminino">
+                  <label for="feminino" class="option-label">Feminino</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calculate-button-container">
+          <button type="submit" class="calculate-button">Calcular</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="results-column">
+    <div class="results-left">
+      <div class="results-label">Seu IMC é:</div>
+      <div class="results-value">0.00</div>
+    </div>
+    <div class="results-description">
+      O resultado obtido fornece uma estimativa do estado nutricional, podendo indicar se o peso está adequado ou se há riscos associados à saúde.
+    </div>
+    <div id="api-feedback-message" style="margin-top: 15px; font-weight: bold;"></div>
+  </div>
+
+  <section class="results-section">
+    <div class="results-container">
+      <h1 class="results-title">Entenda seu Resultado</h1>
+      <div class="results-grid">
+        <div class="result-item"><div class="result-text"><span>18,5 ou menos</span><span>Abaixo do normal</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1d03f9875d097356310e7ed7411dbdd277b06a8" alt="Abaixo do normal" class="result-image"></div>
+        <div class="result-item"><div class="result-text"><span>Entre 18,6 e 24,9</span><span>Normal</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6b7ed804dbec5db4b382c8474ef7dcd57607862c" alt="Normal" class="result-image"></div>
+        <div class="result-item"><div class="result-text"><span>Entre 25,0 e 29,9</span><span>Sobrepeso</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d926b6958746a98a64dc392239478c7a95ddcaf5" alt="Sobrepeso" class="result-image"></div>
+        <div class="result-item"><div class="result-text"><span>Entre 30,0 e 34,9</span><span>Obesidade grau I</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6e1a29a028e8e67f62584033042b1039bd05c6f5" alt="Obesidade grau I" class="result-image"></div>
+        <div class="result-item"><div class="result-text"><span>Entre 35,0 e 39,9</span><span>Obesidade grau II</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/800648bd696a36ddd0d880c4a20f5457ec6b89cf" alt="Obesidade grau II" class="result-image"></div>
+        <div class="result-item"><div class="result-text"><span>Acima de 40,0</span><span>Obesidade grau III</span></div><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/76ef2e6443a3612e960db975cb760297dc934883" alt="Obesidade grau III" class="result-image"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <img src="../IMG/google.png" alt="Social 1">
+      <img src="../IMG/Facebook.png" alt="Social 2">
+      <img src="../IMG/Linkedin.png" alt="Social 3">
+    </div>
+    <div class="footer-text">
+      <p>© 2025 Feito Por Quantum Life.</p>
+    </div>
+  </footer>
+
+  <!-- Modal de sucesso -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalMessage"></p>
+      <button id="modalOkButton">OK</button>
+    </div>
+  </div>
+
+  <script src="/js/calculo-imc.js"></script>
+</body>
+</html>

@@ -11,7 +11,8 @@
 ## 1. Introdução
 
 ### 1.1 Objetivo
-O objetivo do **Quantum Life** é oferecer uma plataforma online de apoio à saúde e bem-estar, com foco em melhorar a forma física e a alimentação dos usuários. Através da integração com inteligência artificial (IA), o site fornecerá soluções personalizadas para dieta e treino, visando auxiliar os usuários na criação de rotinas equilibradas. O sistema incluirá funcionalidades como cálculo de IMC, geração de dietas e treinos personalizados.
+O objetivo do **Quantum Life** é oferecer uma plataforma online de apoio à saúde e bem-estar, com foco em melhorar a forma física e a alimentação dos usuários. Através da integração com inteligência artificial (IA), o site fornecerá soluções personalizadas para dieta, treino e monitoramento de saúde, visando auxiliar os usuários na criação de rotinas equilibradas e sustentáveis. O sistema incluirá funcionalidades como cálculo de IMC, geração de dietas personalizadas, planos de treino, e um assistente IA para guiar o usuário em sua jornada.
+
 ### 1.2 Justificativa
 A obesidade e a falta de hábitos saudáveis têm se tornado um grande problema de saúde pública global, como evidenciado por estudos da OMS e do Ministério da Saúde. O **Quantum Life** visa combater essas questões proporcionando uma plataforma interativa e acessível para a adoção de hábitos saudáveis. Nosso site não apenas oferece recomendações de saúde física, mas também contribui para o bem-estar emocional, promovendo autoestima e motivação.
 
@@ -54,7 +55,8 @@ Com essas informações, a IA do site fornecerá sugestões personalizadas.
 A plataforma será desenvolvida com foco na interação intuitiva e fácil utilização. As funcionalidades principais incluem:
 - **Cálculo do IMC**.
 - **Geração de dietas personalizadas**.
-- **Geração de treinos personalizados**.
+- **Desenvolvimento de planos de treino**.
+- **Monitoramento e feedback**.
 
 #### Ética e Privacidade
 O projeto respeitará as normas da Lei Geral de Proteção de Dados (LGPD), garantindo a segurança e privacidade dos dados dos usuários.
@@ -82,8 +84,8 @@ Vídeos, imagens e protótipos da plataforma serão fornecidos conforme o progre
 ### 5.1 Cadastro de Usuários
 O usuário deverá criar uma conta para acessar as funcionalidades do site. O cadastro também permitirá o armazenamento de dados para personalização das recomendações.
 
-### 5.2 Integração com IA
-A inteligência artificial da OpenAI, com base nas respostas dos quizzes de treino e dieta, irá gerar planos personalizados para cada usuário, proporcionando uma experiência única e individualizada.
+### 5.2 Interação com IA
+O site contará com um chat onde os usuários poderão interagir com a IA, receber dicas e obter dietas e planos de treino personalizados. A IA também estará disponível para oferecer suporte contínuo.
 
 ### 5.3 Cálculo de IMC
 O sistema calculará o IMC do usuário com base no peso e altura informados, fornecendo uma explicação sobre os resultados.
@@ -93,6 +95,9 @@ Com base nos objetivos e preferências alimentares do usuário, a IA gerará sug
 
 ### 5.5 Planos de Treino
 A IA gerará planos de treino adequados aos objetivos e características pessoais do usuário.
+
+### 5.6 Monitoramento de Progresso
+Os usuários poderão registrar e acompanhar seu progresso ao longo do tempo, com gráficos e indicadores de desempenho.
 
 ---
 
